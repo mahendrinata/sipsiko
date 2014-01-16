@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
 /**
- * User model use to add all behavior user
+ * Employee model use to add all behavior Employee
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
 class Employee extends App_Model {

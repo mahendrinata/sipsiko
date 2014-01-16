@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
 /**
- * User model use to add all behavior user
+ * VariableDetail model use to add all behavior VariableDetail
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
 class VariableDetail extends App_Model {

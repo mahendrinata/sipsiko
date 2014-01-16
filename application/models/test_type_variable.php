@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
 /**
- * User model use to add all behavior user
+ * TestTypeVariable model use to add all behavior TestTypeVariable
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
 class TestTypeVariable extends App_Model {
