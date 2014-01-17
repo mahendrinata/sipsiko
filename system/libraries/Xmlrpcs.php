@@ -93,22 +93,22 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
    */
   function set_system_methods() {
     $this->methods = array(
-        'system.listMethods' => array(
-            'function' => 'this.listMethods',
-            'signature' => array(array($this->xmlrpcArray, $this->xmlrpcString), array($this->xmlrpcArray)),
-            'docstring' => 'Returns an array of available methods on this server'),
-        'system.methodHelp' => array(
-            'function' => 'this.methodHelp',
-            'signature' => array(array($this->xmlrpcString, $this->xmlrpcString)),
-            'docstring' => 'Returns a documentation string for the specified method'),
-        'system.methodSignature' => array(
-            'function' => 'this.methodSignature',
-            'signature' => array(array($this->xmlrpcArray, $this->xmlrpcString)),
-            'docstring' => 'Returns an array describing the return type and required parameters of a method'),
-        'system.multicall' => array(
-            'function' => 'this.multicall',
-            'signature' => array(array($this->xmlrpcArray, $this->xmlrpcArray)),
-            'docstring' => 'Combine multiple RPC calls in one request. See http://www.xmlrpc.com/discuss/msgReader$1208 for details')
+      'system.listMethods' => array(
+        'function' => 'this.listMethods',
+        'signature' => array(array($this->xmlrpcArray, $this->xmlrpcString), array($this->xmlrpcArray)),
+        'docstring' => 'Returns an array of available methods on this server'),
+      'system.methodHelp' => array(
+        'function' => 'this.methodHelp',
+        'signature' => array(array($this->xmlrpcString, $this->xmlrpcString)),
+        'docstring' => 'Returns a documentation string for the specified method'),
+      'system.methodSignature' => array(
+        'function' => 'this.methodSignature',
+        'signature' => array(array($this->xmlrpcArray, $this->xmlrpcString)),
+        'docstring' => 'Returns an array describing the return type and required parameters of a method'),
+      'system.multicall' => array(
+        'function' => 'this.multicall',
+        'signature' => array(array($this->xmlrpcArray, $this->xmlrpcArray)),
+        'docstring' => 'Combine multiple RPC calls in one request. See http://www.xmlrpc.com/discuss/msgReader$1208 for details')
     );
   }
 
@@ -145,9 +145,9 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
    */
   function add_to_map($methodname, $function, $sig, $doc) {
     $this->methods[$methodname] = array(
-        'function' => $function,
-        'signature' => $sig,
-        'docstring' => $doc
+      'function' => $function,
+      'signature' => $sig,
+      'docstring' => $doc
     );
   }
 
@@ -300,7 +300,7 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
               $wanted = $current_sig[$n + 1];
 
               return new XML_RPC_Response(0, $this->xmlrpcerr['incorrect_params'], $this->xmlrpcstr['incorrect_params'] .
-                      ": Wanted {$wanted}, got {$pt} at param {$pno})");
+                ": Wanted {$wanted}, got {$pt} at param {$pno})");
             }
           }
         }

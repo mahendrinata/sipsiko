@@ -382,18 +382,18 @@ function bootstrap_form_upload($name = NULL, $value = NULL, $option = array()) {
  */
 function bootstrap_alert_class($type) {
   $message = array(
-      'warning' => array(
-          'class' => 'alert',
-          'message' => 'Warning!'),
-      'success' => array(
-          'class' => 'alert alert-success',
-          'message' => 'Success!'),
-      'error' => array(
-          'class' => 'alert alert-error',
-          'message' => 'Error!'),
-      'info' => array(
-          'class' => 'alert alert-info',
-          'message' => 'Info!')
+    'warning' => array(
+      'class' => 'alert',
+      'message' => 'Warning!'),
+    'success' => array(
+      'class' => 'alert alert-success',
+      'message' => 'Success!'),
+    'error' => array(
+      'class' => 'alert alert-error',
+      'message' => 'Error!'),
+    'info' => array(
+      'class' => 'alert alert-info',
+      'message' => 'Info!')
   );
   return (isset($message[$type])) ? $message[$type] : NULL;
 }
@@ -503,14 +503,14 @@ function bootstrap_table_view($data = array()) {
 
 function bootstrap_table_nav_dropdown($title = NULL, $controller = NULL, $actions = array(), $dir = 'admin') {
   $icon_action = array(
-      'add' => 'icon-plus-sign',
-      'edit' => 'icon-edit',
-      'refresh' => 'icon-refresh',
-      'generate' => 'icon-circle-arrow-down',
-      'export-excel' => 'icon-file',
-      'export-pdf' => 'icon-file',
-      'import-excel' => 'icon-circle-arrow-up',
-      'search' => 'icon-search'
+    'add' => 'icon-plus-sign',
+    'edit' => 'icon-edit',
+    'refresh' => 'icon-refresh',
+    'generate' => 'icon-circle-arrow-down',
+    'export-excel' => 'icon-file',
+    'export-pdf' => 'icon-file',
+    'import-excel' => 'icon-circle-arrow-up',
+    'search' => 'icon-search'
   );
 
   $search = '';
@@ -554,11 +554,11 @@ function bootstrap_table_nav_dropdown($title = NULL, $controller = NULL, $action
 
 function bootstrap_table_action_dropdown($controller = NULL, $actions = array(), $dir = 'admin') {
   $icon_action = array(
-      'view' => 'icon-align-justify',
-      'add' => 'icon-plus-sign',
-      'edit' => 'icon-pencil',
-      'delete' => 'icon-trash',
-      'delete_child' => 'icon-trash',
+    'view' => 'icon-align-justify',
+    'add' => 'icon-plus-sign',
+    'edit' => 'icon-pencil',
+    'delete' => 'icon-trash',
+    'delete_child' => 'icon-trash',
   );
   $output = bootstrap_tag_open('div', array('class' => 'btn-group'));
   if (isset($actions['view'])) {

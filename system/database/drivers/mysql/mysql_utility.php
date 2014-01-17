@@ -135,9 +135,9 @@ class CI_DB_mysql_utility extends CI_DB_utility {
       while ($field = mysql_fetch_field($query->result_id)) {
         // Most versions of MySQL store timestamp as a string
         $is_int[$i] = (in_array(
-                        strtolower(mysql_field_type($query->result_id, $i)), array('tinyint', 'smallint', 'mediumint', 'int', 'bigint'), //, 'timestamp'),
-                        TRUE)
-                ) ? TRUE : FALSE;
+            strtolower(mysql_field_type($query->result_id, $i)), array('tinyint', 'smallint', 'mediumint', 'int', 'bigint'), //, 'timestamp'),
+            TRUE)
+          ) ? TRUE : FALSE;
 
         // Create a string of field names
         $field_str .= '`' . $field->name . '`, ';

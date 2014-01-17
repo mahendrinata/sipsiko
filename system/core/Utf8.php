@@ -42,10 +42,10 @@ class CI_Utf8 {
     global $CFG;
 
     if (
-            preg_match('/./u', 'é') === 1     // PCRE must support UTF-8
-            AND function_exists('iconv')     // iconv must be installed
-            AND ini_get('mbstring.func_overload') != 1  // Multibyte string function overloading cannot be enabled
-            AND $CFG->item('charset') == 'UTF-8'   // Application charset must be UTF-8
+      preg_match('/./u', 'é') === 1     // PCRE must support UTF-8
+      AND function_exists('iconv')     // iconv must be installed
+      AND ini_get('mbstring.func_overload') != 1  // Multibyte string function overloading cannot be enabled
+      AND $CFG->item('charset') == 'UTF-8'   // Application charset must be UTF-8
     ) {
       log_message('debug', "UTF-8 Support Enabled");
 

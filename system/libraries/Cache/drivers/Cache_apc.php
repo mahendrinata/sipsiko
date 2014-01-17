@@ -111,9 +111,9 @@ class CI_Cache_apc extends CI_Driver {
     list($data, $time, $ttl) = $stored;
 
     return array(
-        'expire' => $time + $ttl,
-        'mtime' => $time,
-        'data' => $data
+      'expire' => $time + $ttl,
+      'mtime' => $time,
+      'data' => $data
     );
   }
 

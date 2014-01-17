@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
@@ -134,8 +135,8 @@ class Behavior_Model extends CI_Model {
     }
 
     $row = $this->_database->where($this->primary_key, $primary_value)
-            ->get($this->_table)
-            ->{$this->_return_type()}();
+      ->get($this->_table)
+      ->{$this->_return_type()}();
     $this->_temporary_return_type = $this->return_type;
 
     $row = $this->trigger('after_get', $row);
@@ -159,7 +160,7 @@ class Behavior_Model extends CI_Model {
     $this->trigger('before_get');
 
     $row = $this->_database->get($this->_table)
-            ->{$this->_return_type()}();
+      ->{$this->_return_type()}();
     $this->_temporary_return_type = $this->return_type;
 
     $row = $this->trigger('after_get', $row);
@@ -207,7 +208,7 @@ class Behavior_Model extends CI_Model {
     }
 
     $result = $this->_database->get($this->_table)
-            ->{$this->_return_type(1)}();
+      ->{$this->_return_type(1)}();
     $this->_temporary_return_type = $this->return_type;
 
     foreach ($result as $key => &$row) {
@@ -292,7 +293,7 @@ class Behavior_Model extends CI_Model {
     if ($skip_validation === FALSE) {
       $data = $this->validate($data);
     }
-    
+
     $after = array();
     foreach ($this->has_many as $related) {
       if (isset($data[$related]) && !empty($data[$related])) {
@@ -305,8 +306,8 @@ class Behavior_Model extends CI_Model {
       $data = $this->trigger('before_update', $data);
 
       $result = $this->_database->where($this->primary_key, $primary_value)
-              ->set($data)
-              ->update($this->_table);
+        ->set($data)
+        ->update($this->_table);
 
       $this->trigger('after_update', array($data, $result));
 
@@ -333,8 +334,8 @@ class Behavior_Model extends CI_Model {
 
     if ($data !== FALSE) {
       $result = $this->_database->where_in($this->primary_key, $primary_values)
-              ->set($data)
-              ->update($this->_table);
+        ->set($data)
+        ->update($this->_table);
 
       $this->trigger('after_update', array($data, $result));
 
@@ -356,7 +357,7 @@ class Behavior_Model extends CI_Model {
 
     if ($this->validate($data) !== FALSE) {
       $result = $this->_database->set($data)
-              ->update($this->_table);
+        ->update($this->_table);
       $this->trigger('after_update', array($data, $result));
 
       return $result;
@@ -371,7 +372,7 @@ class Behavior_Model extends CI_Model {
   public function update_all($data) {
     $data = $this->trigger('before_update', $data);
     $result = $this->_database->set($data)
-            ->update($this->_table);
+      ->update($this->_table);
     $this->trigger('after_update', array($data, $result));
 
     return $result;
@@ -524,8 +525,8 @@ class Behavior_Model extends CI_Model {
     }
 
     $result = $this->_database->select(array($key, $value))
-            ->get($this->_table)
-            ->result();
+      ->get($this->_table)
+      ->result();
 
     $options = array();
 
@@ -575,9 +576,9 @@ class Behavior_Model extends CI_Model {
    */
   public function get_next_id() {
     return (int) $this->_database->select('AUTO_INCREMENT')
-                    ->from('information_schema.TABLES')
-                    ->where('TABLE_NAME', $this->_table)
-                    ->where('TABLE_SCHEMA', $this->_database->database)->get()->row()->AUTO_INCREMENT;
+        ->from('information_schema.TABLES')
+        ->where('TABLE_NAME', $this->_table)
+        ->where('TABLE_SCHEMA', $this->_database->database)->get()->row()->AUTO_INCREMENT;
   }
 
   /**

@@ -108,15 +108,15 @@ if (!function_exists('standard_date')) {
 
   function standard_date($fmt = 'DATE_RFC822', $time = '') {
     $formats = array(
-        'DATE_ATOM' => '%Y-%m-%dT%H:%i:%s%Q',
-        'DATE_COOKIE' => '%l, %d-%M-%y %H:%i:%s UTC',
-        'DATE_ISO8601' => '%Y-%m-%dT%H:%i:%s%Q',
-        'DATE_RFC822' => '%D, %d %M %y %H:%i:%s %O',
-        'DATE_RFC850' => '%l, %d-%M-%y %H:%i:%s UTC',
-        'DATE_RFC1036' => '%D, %d %M %y %H:%i:%s %O',
-        'DATE_RFC1123' => '%D, %d %M %Y %H:%i:%s %O',
-        'DATE_RSS' => '%D, %d %M %Y %H:%i:%s %O',
-        'DATE_W3C' => '%Y-%m-%dT%H:%i:%s%Q'
+      'DATE_ATOM' => '%Y-%m-%dT%H:%i:%s%Q',
+      'DATE_COOKIE' => '%l, %d-%M-%y %H:%i:%s UTC',
+      'DATE_ISO8601' => '%Y-%m-%dT%H:%i:%s%Q',
+      'DATE_RFC822' => '%D, %d %M %y %H:%i:%s %O',
+      'DATE_RFC850' => '%l, %d-%M-%y %H:%i:%s UTC',
+      'DATE_RFC1036' => '%D, %d %M %y %H:%i:%s %O',
+      'DATE_RFC1123' => '%D, %d %M %Y %H:%i:%s %O',
+      'DATE_RSS' => '%D, %d %M %Y %H:%i:%s %O',
+      'DATE_W3C' => '%Y-%m-%dT%H:%i:%s%Q'
     );
 
     if (!isset($formats[$fmt])) {
@@ -339,7 +339,7 @@ if (!function_exists('mysql_to_unix')) {
 
     // YYYYMMDDHHMMSS
     return mktime(
-            substr($time, 8, 2), substr($time, 10, 2), substr($time, 12, 2), substr($time, 4, 2), substr($time, 6, 2), substr($time, 0, 4)
+      substr($time, 8, 2), substr($time, 10, 2), substr($time, 12, 2), substr($time, 4, 2), substr($time, 6, 2), substr($time, 0, 4)
     );
   }
 
@@ -506,46 +506,46 @@ if (!function_exists('timezones')) {
     // some items appear to be in the wrong order
 
     $zones = array(
-        'UM12' => -12,
-        'UM11' => -11,
-        'UM10' => -10,
-        'UM95' => -9.5,
-        'UM9' => -9,
-        'UM8' => -8,
-        'UM7' => -7,
-        'UM6' => -6,
-        'UM5' => -5,
-        'UM45' => -4.5,
-        'UM4' => -4,
-        'UM35' => -3.5,
-        'UM3' => -3,
-        'UM2' => -2,
-        'UM1' => -1,
-        'UTC' => 0,
-        'UP1' => +1,
-        'UP2' => +2,
-        'UP3' => +3,
-        'UP35' => +3.5,
-        'UP4' => +4,
-        'UP45' => +4.5,
-        'UP5' => +5,
-        'UP55' => +5.5,
-        'UP575' => +5.75,
-        'UP6' => +6,
-        'UP65' => +6.5,
-        'UP7' => +7,
-        'UP8' => +8,
-        'UP875' => +8.75,
-        'UP9' => +9,
-        'UP95' => +9.5,
-        'UP10' => +10,
-        'UP105' => +10.5,
-        'UP11' => +11,
-        'UP115' => +11.5,
-        'UP12' => +12,
-        'UP1275' => +12.75,
-        'UP13' => +13,
-        'UP14' => +14
+      'UM12' => -12,
+      'UM11' => -11,
+      'UM10' => -10,
+      'UM95' => -9.5,
+      'UM9' => -9,
+      'UM8' => -8,
+      'UM7' => -7,
+      'UM6' => -6,
+      'UM5' => -5,
+      'UM45' => -4.5,
+      'UM4' => -4,
+      'UM35' => -3.5,
+      'UM3' => -3,
+      'UM2' => -2,
+      'UM1' => -1,
+      'UTC' => 0,
+      'UP1' => +1,
+      'UP2' => +2,
+      'UP3' => +3,
+      'UP35' => +3.5,
+      'UP4' => +4,
+      'UP45' => +4.5,
+      'UP5' => +5,
+      'UP55' => +5.5,
+      'UP575' => +5.75,
+      'UP6' => +6,
+      'UP65' => +6.5,
+      'UP7' => +7,
+      'UP8' => +8,
+      'UP875' => +8.75,
+      'UP9' => +9,
+      'UP95' => +9.5,
+      'UP10' => +10,
+      'UP105' => +10.5,
+      'UP11' => +11,
+      'UP115' => +11.5,
+      'UP12' => +12,
+      'UP1275' => +12.75,
+      'UP13' => +13,
+      'UP14' => +14
     );
 
     if ($tz == '') {

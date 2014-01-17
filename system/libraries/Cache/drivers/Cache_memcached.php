@@ -30,11 +30,11 @@ class CI_Cache_memcached extends CI_Driver {
 
   private $_memcached; // Holds the memcached object
   protected $_memcache_conf = array(
-      'default' => array(
-          'default_host' => '127.0.0.1',
-          'default_port' => 11211,
-          'default_weight' => 1
-      )
+    'default' => array(
+      'default_host' => '127.0.0.1',
+      'default_port' => 11211,
+      'default_weight' => 1
+    )
   );
 
   // ------------------------------------------------------------------------	
@@ -124,9 +124,9 @@ class CI_Cache_memcached extends CI_Driver {
     list($data, $time, $ttl) = $stored;
 
     return array(
-        'expire' => $time + $ttl,
-        'mtime' => $time,
-        'data' => $data
+      'expire' => $time + $ttl,
+      'mtime' => $time,
+      'data' => $data
     );
   }
 
@@ -164,7 +164,7 @@ class CI_Cache_memcached extends CI_Driver {
       }
 
       $this->_memcached->addServer(
-              $cache_server['hostname'], $cache_server['port'], $cache_server['weight']
+        $cache_server['hostname'], $cache_server['port'], $cache_server['weight']
       );
     }
   }

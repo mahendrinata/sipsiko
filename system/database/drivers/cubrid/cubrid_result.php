@@ -99,8 +99,8 @@ class CI_DB_cubrid_result extends CI_DB_result {
       // The query will search for exact single columns, thus
       // compound PK is not supported.
       $res = cubrid_query($this->conn_id, "SELECT COUNT(*) FROM db_index WHERE class_name = '" . $field->table .
-              "' AND is_primary_key = 'YES' AND index_name = 'pk_" .
-              $field->table . "_" . $field->name . "'"
+        "' AND is_primary_key = 'YES' AND index_name = 'pk_" .
+        $field->table . "_" . $field->name . "'"
       );
 
       if ($res) {
@@ -130,8 +130,8 @@ class CI_DB_cubrid_result extends CI_DB_result {
    */
   function free_result() {
     if (is_resource($this->result_id) ||
-            get_resource_type($this->result_id) == "Unknown" &&
-            preg_match('/Resource id #/', strval($this->result_id))) {
+      get_resource_type($this->result_id) == "Unknown" &&
+      preg_match('/Resource id #/', strval($this->result_id))) {
       cubrid_close_request($this->result_id);
       $this->result_id = FALSE;
     }

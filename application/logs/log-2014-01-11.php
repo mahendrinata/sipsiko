@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
 DEBUG - 2014-01-11 03:55:17 --> Config Class Initialized
 DEBUG - 2014-01-11 03:55:17 --> Hooks Class Initialized

@@ -37,7 +37,7 @@ class Admin_Controller extends App_Controller {
     if (in_array($this->router->method, $this->skip_uid_validate) && (!empty(self::$id) && !empty(self::$uid))) {
       $this->validate_uid(self::$id, self::$uid);
     }
-    
+
     $this->data['title'] = $this->get_title();
   }
 

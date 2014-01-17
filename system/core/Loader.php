@@ -126,7 +126,7 @@ class CI_Loader {
    * @access protected
    */
   protected $_ci_varmap = array('unit_test' => 'unit',
-      'user_agent' => 'agent');
+    'user_agent' => 'agent');
 
   /**
    * Constructor

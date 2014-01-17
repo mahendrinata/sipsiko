@@ -40,19 +40,19 @@ class App_Controller extends Behavior_controller {
 
   public function error_message($action = NULL, $callback_action = FALSE, $message = NULL) {
     $actions = array(
-        'create' => array(
-            TRUE => 'Create data success..',
-            FALSE => 'Create data failed.'),
-        'edit' => array(
-            TRUE => 'Update data success.',
-            FALSE => 'Update data failed.'),
-        'delete' => array(
-            TRUE => 'Delete data success.',
-            FALSE => 'Delete data failed.'),
-        'redirect' => array(
-            TRUE => 'The page you are correct access.',
-            FALSE => 'An error occurred on the page you access.'
-        )
+      'create' => array(
+        TRUE => 'Create data success..',
+        FALSE => 'Create data failed.'),
+      'edit' => array(
+        TRUE => 'Update data success.',
+        FALSE => 'Update data failed.'),
+      'delete' => array(
+        TRUE => 'Delete data success.',
+        FALSE => 'Delete data failed.'),
+      'redirect' => array(
+        TRUE => 'The page you are correct access.',
+        FALSE => 'An error occurred on the page you access.'
+      )
     );
 
     $message = (empty($message)) ? $actions[$action][$callback_action] : $message;

@@ -368,13 +368,13 @@ if (!function_exists('auto_link')) {
           }
 
           $str = str_replace($matches['0'][$i], $matches['1'][$i] . '<a href="http' .
-                  $matches['4'][$i] . '://' .
-                  $matches['5'][$i] .
-                  $matches['6'][$i] . '"' . $pop . '>http' .
-                  $matches['4'][$i] . '://' .
-                  $matches['5'][$i] .
-                  $matches['6'][$i] . '</a>' .
-                  $period, $str);
+            $matches['4'][$i] . '://' .
+            $matches['5'][$i] .
+            $matches['6'][$i] . '"' . $pop . '>http' .
+            $matches['4'][$i] . '://' .
+            $matches['5'][$i] .
+            $matches['6'][$i] . '</a>' .
+            $period, $str);
         }
       }
     }
@@ -453,10 +453,10 @@ if (!function_exists('url_title')) {
     $q_separator = preg_quote($separator);
 
     $trans = array(
-        '&.+?;' => '',
-        '[^a-z0-9 _-]' => '',
-        '\s+' => $separator,
-        '(' . $q_separator . ')+' => $separator
+      '&.+?;' => '',
+      '[^a-z0-9 _-]' => '',
+      '\s+' => $separator,
+      '(' . $q_separator . ')+' => $separator
     );
 
     $str = strip_tags($str);

@@ -126,13 +126,13 @@ class CI_Form_validation {
 
     // Build our master array
     $this->_field_data[$field] = array(
-        'field' => $field,
-        'label' => $label,
-        'rules' => $rules,
-        'is_array' => $is_array,
-        'keys' => $indexes,
-        'postdata' => NULL,
-        'error' => ''
+      'field' => $field,
+      'label' => $label,
+      'rules' => $rules,
+      'is_array' => $is_array,
+      'keys' => $indexes,
+      'postdata' => NULL,
+      'error' => ''
     );
 
     return $this;

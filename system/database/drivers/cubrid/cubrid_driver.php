@@ -31,6 +31,7 @@ if (!defined('BASEPATH'))
  * @link		http://codeigniter.com/user_guide/database/
  */
 class CI_DB_cubrid_driver extends CI_DB {
+
   // Default CUBRID Broker port. Will be used unless user
   // explicitly specifies another one.
 

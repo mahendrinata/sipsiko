@@ -67,7 +67,7 @@ class CI_Migration {
     // If the migrations table is missing, make it
     if (!$this->db->table_exists('migrations')) {
       $this->dbforge->add_field(array(
-          'version' => array('type' => 'INT', 'constraint' => 3),
+        'version' => array('type' => 'INT', 'constraint' => 3),
       ));
 
       $this->dbforge->create_table('migrations', TRUE);
@@ -276,7 +276,7 @@ class CI_Migration {
    */
   protected function _update_version($migrations) {
     return $this->db->update('migrations', array(
-                'version' => $migrations
+        'version' => $migrations
     ));
   }
 

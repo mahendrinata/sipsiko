@@ -59,12 +59,12 @@ class CI_DB_sqlsrv_driver extends CI_DB {
     $character_set = (0 === strcasecmp('utf8', $this->char_set)) ? 'UTF-8' : $this->char_set;
 
     $connection = array(
-        'UID' => empty($this->username) ? '' : $this->username,
-        'PWD' => empty($this->password) ? '' : $this->password,
-        'Database' => $this->database,
-        'ConnectionPooling' => $pooling ? 1 : 0,
-        'CharacterSet' => $character_set,
-        'ReturnDatesAsStrings' => 1
+      'UID' => empty($this->username) ? '' : $this->username,
+      'PWD' => empty($this->password) ? '' : $this->password,
+      'Database' => $this->database,
+      'ConnectionPooling' => $pooling ? 1 : 0,
+      'CharacterSet' => $character_set,
+      'ReturnDatesAsStrings' => 1
     );
 
     // If the username and password are both empty, assume this is a 
@@ -142,8 +142,8 @@ class CI_DB_sqlsrv_driver extends CI_DB {
   function _execute($sql) {
     $sql = $this->_prep_query($sql);
     return sqlsrv_query($this->conn_id, $sql, null, array(
-        'Scrollable' => SQLSRV_CURSOR_STATIC,
-        'SendStreamParamsAtExec' => true
+      'Scrollable' => SQLSRV_CURSOR_STATIC,
+      'SendStreamParamsAtExec' => true
     ));
   }
 

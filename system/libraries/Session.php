@@ -282,11 +282,11 @@ class CI_Session {
     $sessid .= $this->CI->input->ip_address();
 
     $this->userdata = array(
-        'session_id' => md5(uniqid($sessid, TRUE)),
-        'ip_address' => $this->CI->input->ip_address(),
-        'user_agent' => substr($this->CI->input->user_agent(), 0, 120),
-        'last_activity' => $this->now,
-        'user_data' => ''
+      'session_id' => md5(uniqid($sessid, TRUE)),
+      'ip_address' => $this->CI->input->ip_address(),
+      'user_agent' => substr($this->CI->input->user_agent(), 0, 120),
+      'last_activity' => $this->now,
+      'user_data' => ''
     );
 
 
@@ -367,7 +367,7 @@ class CI_Session {
 
     // Kill the cookie
     setcookie(
-            $this->sess_cookie_name, addslashes(serialize(array())), ($this->now - 31500000), $this->cookie_path, $this->cookie_domain, 0
+      $this->sess_cookie_name, addslashes(serialize(array())), ($this->now - 31500000), $this->cookie_path, $this->cookie_domain, 0
     );
 
     // Kill session data
@@ -588,7 +588,7 @@ class CI_Session {
 
     // Set the cookie
     setcookie(
-            $this->sess_cookie_name, $cookie_data, $expire, $this->cookie_path, $this->cookie_domain, $this->cookie_secure
+      $this->sess_cookie_name, $cookie_data, $expire, $this->cookie_path, $this->cookie_domain, $this->cookie_secure
     );
   }
 

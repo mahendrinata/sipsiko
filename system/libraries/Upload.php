@@ -78,31 +78,31 @@ class CI_Upload {
    */
   public function initialize($config = array()) {
     $defaults = array(
-        'max_size' => 0,
-        'max_width' => 0,
-        'max_height' => 0,
-        'max_filename' => 0,
-        'allowed_types' => "",
-        'file_temp' => "",
-        'file_name' => "",
-        'orig_name' => "",
-        'file_type' => "",
-        'file_size' => "",
-        'file_ext' => "",
-        'upload_path' => "",
-        'overwrite' => FALSE,
-        'encrypt_name' => FALSE,
-        'is_image' => FALSE,
-        'image_width' => '',
-        'image_height' => '',
-        'image_type' => '',
-        'image_size_str' => '',
-        'error_msg' => array(),
-        'mimes' => array(),
-        'remove_spaces' => TRUE,
-        'xss_clean' => FALSE,
-        'temp_prefix' => "temp_file_",
-        'client_name' => ''
+      'max_size' => 0,
+      'max_width' => 0,
+      'max_height' => 0,
+      'max_filename' => 0,
+      'allowed_types' => "",
+      'file_temp' => "",
+      'file_name' => "",
+      'orig_name' => "",
+      'file_type' => "",
+      'file_size' => "",
+      'file_ext' => "",
+      'upload_path' => "",
+      'overwrite' => FALSE,
+      'encrypt_name' => FALSE,
+      'is_image' => FALSE,
+      'image_width' => '',
+      'image_height' => '',
+      'image_type' => '',
+      'image_size_str' => '',
+      'error_msg' => array(),
+      'mimes' => array(),
+      'remove_spaces' => TRUE,
+      'xss_clean' => FALSE,
+      'temp_prefix' => "temp_file_",
+      'client_name' => ''
     );
 
 
@@ -312,20 +312,20 @@ class CI_Upload {
    */
   public function data() {
     return array(
-        'file_name' => $this->file_name,
-        'file_type' => $this->file_type,
-        'file_path' => $this->upload_path,
-        'full_path' => $this->upload_path . $this->file_name,
-        'raw_name' => str_replace($this->file_ext, '', $this->file_name),
-        'orig_name' => $this->orig_name,
-        'client_name' => $this->client_name,
-        'file_ext' => $this->file_ext,
-        'file_size' => $this->file_size,
-        'is_image' => $this->is_image(),
-        'image_width' => $this->image_width,
-        'image_height' => $this->image_height,
-        'image_type' => $this->image_type,
-        'image_size_str' => $this->image_size_str,
+      'file_name' => $this->file_name,
+      'file_type' => $this->file_type,
+      'file_path' => $this->upload_path,
+      'full_path' => $this->upload_path . $this->file_name,
+      'raw_name' => str_replace($this->file_ext, '', $this->file_name),
+      'orig_name' => $this->orig_name,
+      'client_name' => $this->client_name,
+      'file_ext' => $this->file_ext,
+      'file_size' => $this->file_size,
+      'is_image' => $this->is_image(),
+      'image_width' => $this->image_width,
+      'image_height' => $this->image_height,
+      'image_type' => $this->image_type,
+      'image_size_str' => $this->image_size_str,
     );
   }
 
@@ -512,9 +512,9 @@ class CI_Upload {
     }
 
     $img_mimes = array(
-        'image/gif',
-        'image/jpeg',
-        'image/png',
+      'image/gif',
+      'image/jpeg',
+      'image/png',
     );
 
     return (in_array($this->file_type, $img_mimes, TRUE)) ? TRUE : FALSE;
@@ -670,32 +670,32 @@ class CI_Upload {
    */
   public function clean_file_name($filename) {
     $bad = array(
-        "<!--",
-        "-->",
-        "'",
-        "<",
-        ">",
-        '"',
-        '&',
-        '$',
-        '=',
-        ';',
-        '?',
-        '/',
-        "%20",
-        "%22",
-        "%3c", // <
-        "%253c", // <
-        "%3e", // >
-        "%0e", // >
-        "%28", // (
-        "%29", // )
-        "%2528", // (
-        "%26", // &
-        "%24", // $
-        "%3f", // ?
-        "%3b", // ;
-        "%3d"  // =
+      "<!--",
+      "-->",
+      "'",
+      "<",
+      ">",
+      '"',
+      '&',
+      '$',
+      '=',
+      ';',
+      '?',
+      '/',
+      "%20",
+      "%22",
+      "%3c", // <
+      "%253c", // <
+      "%3e", // >
+      "%0e", // >
+      "%28", // (
+      "%29", // )
+      "%2528", // (
+      "%26", // &
+      "%24", // $
+      "%3f", // ?
+      "%3b", // ;
+      "%3d"  // =
     );
 
     $filename = str_replace($bad, '', $filename);

@@ -422,7 +422,7 @@ class CI_Input {
     $collapsed = FALSE;
 
     $chunks = array_filter(
-            preg_split('/(:{1,2})/', $str, NULL, PREG_SPLIT_DELIM_CAPTURE)
+      preg_split('/(:{1,2})/', $str, NULL, PREG_SPLIT_DELIM_CAPTURE)
     );
 
     // Rule out easy nonsense
@@ -503,9 +503,9 @@ class CI_Input {
   function _sanitize_globals() {
     // It would be "wrong" to unset any of these GLOBALS.
     $protected = array('_SERVER', '_GET', '_POST', '_FILES', '_REQUEST',
-        '_SESSION', '_ENV', 'GLOBALS', 'HTTP_RAW_POST_DATA',
-        'system_folder', 'application_folder', 'BM', 'EXT',
-        'CFG', 'URI', 'RTR', 'OUT', 'IN');
+      '_SESSION', '_ENV', 'GLOBALS', 'HTTP_RAW_POST_DATA',
+      'system_folder', 'application_folder', 'BM', 'EXT',
+      'CFG', 'URI', 'RTR', 'OUT', 'IN');
 
     // Unset globals for securiy.
     // This is effectively the same as register_globals = off

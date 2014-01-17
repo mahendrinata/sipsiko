@@ -72,35 +72,35 @@ class CI_Xmlrpc {
 
     // Types for info sent back and forth
     $this->xmlrpcTypes = array(
-        $this->xmlrpcI4 => '1',
-        $this->xmlrpcInt => '1',
-        $this->xmlrpcBoolean => '1',
-        $this->xmlrpcString => '1',
-        $this->xmlrpcDouble => '1',
-        $this->xmlrpcDateTime => '1',
-        $this->xmlrpcBase64 => '1',
-        $this->xmlrpcArray => '2',
-        $this->xmlrpcStruct => '3'
+      $this->xmlrpcI4 => '1',
+      $this->xmlrpcInt => '1',
+      $this->xmlrpcBoolean => '1',
+      $this->xmlrpcString => '1',
+      $this->xmlrpcDouble => '1',
+      $this->xmlrpcDateTime => '1',
+      $this->xmlrpcBase64 => '1',
+      $this->xmlrpcArray => '2',
+      $this->xmlrpcStruct => '3'
     );
 
     // Array of Valid Parents for Various XML-RPC elements
     $this->valid_parents = array('BOOLEAN' => array('VALUE'),
-        'I4' => array('VALUE'),
-        'INT' => array('VALUE'),
-        'STRING' => array('VALUE'),
-        'DOUBLE' => array('VALUE'),
-        'DATETIME.ISO8601' => array('VALUE'),
-        'BASE64' => array('VALUE'),
-        'ARRAY' => array('VALUE'),
-        'STRUCT' => array('VALUE'),
-        'PARAM' => array('PARAMS'),
-        'METHODNAME' => array('METHODCALL'),
-        'PARAMS' => array('METHODCALL', 'METHODRESPONSE'),
-        'MEMBER' => array('STRUCT'),
-        'NAME' => array('MEMBER'),
-        'DATA' => array('ARRAY'),
-        'FAULT' => array('METHODRESPONSE'),
-        'VALUE' => array('MEMBER', 'DATA', 'PARAM', 'FAULT')
+      'I4' => array('VALUE'),
+      'INT' => array('VALUE'),
+      'STRING' => array('VALUE'),
+      'DOUBLE' => array('VALUE'),
+      'DATETIME.ISO8601' => array('VALUE'),
+      'BASE64' => array('VALUE'),
+      'ARRAY' => array('VALUE'),
+      'STRUCT' => array('VALUE'),
+      'PARAM' => array('PARAMS'),
+      'METHODNAME' => array('METHODCALL'),
+      'PARAMS' => array('METHODCALL', 'METHODRESPONSE'),
+      'MEMBER' => array('STRUCT'),
+      'NAME' => array('MEMBER'),
+      'DATA' => array('ARRAY'),
+      'FAULT' => array('METHODRESPONSE'),
+      'VALUE' => array('MEMBER', 'DATA', 'PARAM', 'FAULT')
     );
 
 
@@ -432,8 +432,8 @@ class XML_RPC_Response {
 </fault>';
     } else {
       $result .= "<params>\n<param>\n" .
-              $this->val->serialize_class() .
-              "</param>\n</params>";
+        $this->val->serialize_class() .
+        "</param>\n</params>";
     }
     $result .= "\n</methodResponse>";
     return $result;
@@ -755,7 +755,7 @@ class XML_RPC_Message extends CI_Xmlrpc {
         // Creates array for child elements
 
         $cur_val = array('value' => array(),
-            'type' => $name);
+          'type' => $name);
 
         array_unshift($this->xh[$the_parser]['valuestack'], $cur_val);
         break;
@@ -942,6 +942,9 @@ class XML_RPC_Message extends CI_Xmlrpc {
   function character_data($the_parser, $data) {
     if ($this->xh[$the_parser]['isf'] > 1)
       return; // XML Fault found already
+
+
+
 
 
       

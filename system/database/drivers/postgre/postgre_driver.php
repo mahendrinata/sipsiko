@@ -55,11 +55,11 @@ class CI_DB_postgre_driver extends CI_DB {
 
   function _connect_string() {
     $components = array(
-        'hostname' => 'host',
-        'port' => 'port',
-        'database' => 'dbname',
-        'username' => 'user',
-        'password' => 'password'
+      'hostname' => 'host',
+      'port' => 'port',
+      'database' => 'dbname',
+      'username' => 'user',
+      'password' => 'password'
     );
 
     $connect_string = "";

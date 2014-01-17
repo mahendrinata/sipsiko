@@ -249,7 +249,6 @@ class ORM_Model extends Behavior_Model {
     }
   }
 
-
   function set_tree_data($data = array(), $parent = 'parent_id', $id = 'id', $child = 'child') {
     $new_data = array();
     foreach ($data as $value) {
