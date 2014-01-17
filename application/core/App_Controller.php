@@ -43,7 +43,7 @@ class App_Controller extends Behavior_controller {
 
     $this->data['title'] = $this->get_title();
 
-    self::$layout = 'default';
+    self::$layout = 'layout/default';
   }
 
   public function error_message($action = NULL, $callback_action = FALSE, $message = NULL) {

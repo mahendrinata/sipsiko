@@ -1,5 +1,5 @@
 <div class="container-fluid">
   <?php
-  $this->load->view('content/' . $direcory . '/' . $class . '/' . $method);
+  $this->load->view('content/' . $directory . '/' . $class . '/' . $method);
   ?>
 </div>

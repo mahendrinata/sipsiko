@@ -8,7 +8,7 @@
       'application',
       'isotope',
       'normalize',
-      'fullcalender',
+      'fullcalendar',
       'datatables',
       'prettify',
       'classyscroll',

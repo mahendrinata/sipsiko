@@ -6,10 +6,10 @@ if (!defined('BASEPATH'))
 /**
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class Homes extends Admin_Controller {
+class Users extends Guest_Controller {
   
-  public function index(){
-    $this->load->view(self::$layout, $this->data);
+  public function login(){
+    $this->load->view('layout/login', $this->data);
   }
   
 }

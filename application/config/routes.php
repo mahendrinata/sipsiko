@@ -41,7 +41,7 @@ if (!defined('BASEPATH'))
   |
  */
 
-$route['default_controller'] = "pages";
+$route['default_controller'] = "admin/homes";
 $route['404_override'] = '';
 
 
