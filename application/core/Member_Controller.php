@@ -4,11 +4,11 @@ if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
 /**
- * Admin Controller use to add all function admin used by user
+ * Member Controller use to add all function used by member user
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class Admin_Controller extends App_Controller {
-  
+class Member_Controller extends App_Controller {
+
 }
 
 ?>

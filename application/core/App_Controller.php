@@ -12,30 +12,38 @@ class App_Controller extends Behavior_controller {
   public static $offset = 4;
   public static $limit = 10;
   protected static $id;
+  protected static $uid;
+  protected static $page;
   public $data = array();
   public static $layout;
-  public static $layout_default;
   public static $active_session;
   public static $post_data;
   public static $default_model;
+  protected $skip_uid_validate = array('edit', 'remove', 'active');
 
   public function __construct() {
     parent::__construct();
 
+    $this->data['directory'] = $this->router->directory;
     $this->data['class'] = $this->router->class;
     $this->data['method'] = ($this->router->class == $this->router->method) ? 'index' : $this->router->method;
 
     self::$id = $this->uri->segment(4);
+    self::$uid = self::$page = $this->uri->segment(5);
 
     self::$active_session = $this->session->all_userdata();
 
     self::$post_data = $this->input->post();
 
-    self::$default_model = ucfirst($this->data['class']) . '_model';
+    self::$default_model = ucfirst(singular($this->data['class']));
 
     if (file_exists(APPPATH . 'models/' . strtolower(self::$default_model) . '.php')) {
       $this->load->model(self::$default_model);
     }
+
+    $this->data['title'] = $this->get_title();
+
+    self::$layout = 'default';
   }
 
   public function error_message($action = NULL, $callback_action = FALSE, $message = NULL) {
@@ -171,6 +179,21 @@ class App_Controller extends Behavior_controller {
   function save_data_after($model = NULL, $data = array(), $field = NULL, $value = NULL, $validate = TRUE) {
     $this->load->model($model);
     return $this->{$model}->save_data_after($data, $field, $value, $validate);
+  }
+
+  function after_save($type = NULL, $callback = NULL) {
+    if ($callback) {
+      redirect($this->data['directory'] . '/' . $this->data['class']);
+    }
+    $this->error_message($type, $callback);
+  }
+
+  function get_title() {
+    if ($this->data['method'] == 'index') {
+      return ucwords($this->data['class'] . ' management');
+    } else {
+      return ucwords($this->data['method'] . ' ' . $this->data['class']);
+    }
   }
 
 }
