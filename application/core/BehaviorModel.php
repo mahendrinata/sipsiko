@@ -10,7 +10,7 @@ if (!defined('BASEPATH'))
  * @link http://github.com/jamierumbelow/codeigniter-base-model
  * @copyright Copyright (c) 2012, Jamie Rumbelow <http://jamierumbelow.net>
  */
-class Behavior_Model extends CI_Model {
+class BehaviorModel extends CI_Model {
   /* --------------------------------------------------------------
    * VARIABLES
    * ------------------------------------------------------------ */

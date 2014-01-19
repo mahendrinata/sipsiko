@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))
 /**
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class Homes extends Admin_Controller {
+class Homes extends AdminController {
   
   public function index(){
     $this->load->view(self::$layout, $this->data);

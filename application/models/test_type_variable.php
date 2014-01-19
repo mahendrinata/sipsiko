@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * TestTypeVariable model use to add all behavior TestTypeVariable
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class TestTypeVariable extends App_Model {
+class TestTypeVariable extends AppModel {
 
   public $fields = array(
     array('name' => 'id', 'type' => 'integer', 'require' => TRUE, 'primary_key' => TRUE, 'auto_increment' => TRUE),

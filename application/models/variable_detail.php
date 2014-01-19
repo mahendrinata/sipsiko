@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * VariableDetail model use to add all behavior VariableDetail
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class VariableDetail extends App_Model {
+class VariableDetail extends AppModel {
 
   public $fields = array(
     array('name' => 'id', 'type' => 'integer', 'require' => TRUE, 'primary_key' => TRUE, 'auto_increment' => TRUE),

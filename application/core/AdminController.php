@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * Admin Controller use to add all function admin used by user
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class Admin_Controller extends App_Controller {
+class AdminController extends AppController {
   
 }
 

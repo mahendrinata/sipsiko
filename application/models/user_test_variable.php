@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * UserTestVariable model use to add all behavior UserTestVariable
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class UserTestVariable extends App_Model {
+class UserTestVariable extends AppModel {
 
   public $fields = array(
     array('name' => 'id', 'type' => 'integer', 'require' => TRUE, 'primary_key' => TRUE, 'auto_increment' => TRUE),

@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * App Model use to add all behavior model
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class ORM_Model extends Behavior_Model {
+class OrmModel extends BehaviorModel {
 
   public static $active_session;
 

@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * User model use to add all behavior user
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class User extends App_Model {
+class User extends AppModel {
 
   public $fields = array(
     array('name' => 'id', 'type' => 'integer', 'require' => TRUE, 'primary_key' => TRUE, 'auto_increment' => TRUE),

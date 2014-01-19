@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * Company model use to add all behavior Company
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class Company extends App_Model {
+class Company extends AppModel {
 
   public $fields = array(
     array('name' => 'id', 'type' => 'integer', 'require' => TRUE, 'primary_key' => TRUE, 'auto_increment' => TRUE),

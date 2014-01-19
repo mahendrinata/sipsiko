@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * Employee model use to add all behavior Employee
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class Employee extends App_Model {
+class Employee extends AppModel {
 
   public $fields = array(
     array('name' => 'id', 'type' => 'integer', 'require' => TRUE, 'primary_key' => TRUE, 'auto_increment' => TRUE),

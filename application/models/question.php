@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * Question model use to add all behavior Question
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class Question extends App_Model {
+class Question extends AppModel {
 
   public $fields = array(
     array('name' => 'id', 'type' => 'integer', 'require' => TRUE, 'primary_key' => TRUE, 'auto_increment' => TRUE),

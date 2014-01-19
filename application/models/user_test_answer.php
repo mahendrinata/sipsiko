@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * UserTestAnswer model use to add all behavior UserTestAnswer
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class UserTestAnswer extends App_Model {
+class UserTestAnswer extends AppModel {
 
   public $fields = array(
     array('name' => 'id', 'type' => 'integer', 'require' => TRUE, 'primary_key' => TRUE, 'auto_increment' => TRUE),
