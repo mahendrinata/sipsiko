@@ -777,13 +777,21 @@ class BehaviorModel extends CI_Model {
       return $data;
     }
   }
+  
+  protected function _table_from_class($class = NULL){
+    return preg_replace('/(?<!^)([A-Z])/', '_\\1', $class);
+  }
+  
+  protected function _table_from_string($string = NULL){
+    return plural(preg_replace('/(_m|_model)?$/', '', strtolower($this->_table_from_class($string))));
+  }
 
   /**
    * Guess the table name by pluralising the model name
    */
   private function _fetch_table() {
     if ($this->_table == NULL) {
-      $this->_table = plural(preg_replace('/(_m|_model)?$/', '', strtolower(get_class($this))));
+      $this->_table = plural(preg_replace('/(_m|_model)?$/', '', strtolower($this->_table_from_class(get_class($this)))));
     }
   }
 

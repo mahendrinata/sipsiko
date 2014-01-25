@@ -65,22 +65,26 @@ class OrmModel extends BehaviorModel {
 
   public function set_conditions($tables = array(), $string = TRUE) {
     $string_condition = array();
-    foreach ($tables as $table_name => $fields) {
-      foreach ($fields as $field => $value) {
-        $field_name = plural($table_name) . '.' . $field;
-        if (!is_array($value)) {
-          $string_condition[] = $this->set_condition_value($field_name, $value);
-        } elseif ($field == 'OR' && is_array($value)) {
-          $ors = array();
-          foreach ($value as $field_or => $or) {
-            $ors[] = $this->set_condition_value(plural($table_name) . '.' . $field_or, $or);
+    if (is_array($tables)) {
+      foreach ($tables as $table_name => $fields) {
+        foreach ($fields as $field => $value) {
+          $field_name = plural($table_name) . '.' . $field;
+          if (!is_array($value)) {
+            $string_condition[] = $this->set_condition_value($field_name, $value);
+          } elseif ($field == 'OR' && is_array($value)) {
+            $ors = array();
+            foreach ($value as $field_or => $or) {
+              $ors[] = $this->set_condition_value(plural($table_name) . '.' . $field_or, $or);
+            }
+            $string_condition[] = '(' . implode(' OR ', $ors) . ')';
+          } elseif (is_array($value)) {
+            $in = '("' . implode('",', $value) . '")';
+            $string_condition[] = $field_name . ' IN ' . $in;
           }
-          $string_condition[] = '(' . implode(' OR ', $ors) . ')';
-        } elseif (is_array($value)) {
-          $in = '("' . implode('",', $value) . '")';
-          $string_condition[] = $field_name . ' IN ' . $in;
         }
       }
+    } else {
+      $string_condition[] = $tables;
     }
     if ($string) {
       return 'WHERE ' . implode(' AND ', $string_condition);
@@ -103,36 +107,49 @@ class OrmModel extends BehaviorModel {
     }
   }
 
-  public function find($type = NULL, $conditions = array()) {
+  public function find($type = NULL, $conditions = array(), $mapper = TRUE) {
 
+    $type = strtolower($type);
     if ($type == 'first') {
       $conditions['limit'] = 1;
     }
 
     $query = array();
 
-    if (isset($conditions['fields']) && !empty($conditions['fields'])) {
-      foreach ($conditions['fields'] as $table => $fields) {
-        if (is_array($fields) && !empty($fields)) {
-          $string_fields[] = $this->set_fields(array($table => $fields));
-        } else {
-          $string_fields[] = $this->get_fields(array($fields));
+    if (is_array($conditions['fields']) && $type != 'count') {
+      if (isset($conditions['fields']) && !empty($conditions['fields'])) {
+        foreach ($conditions['fields'] as $table => $fields) {
+          if (is_array($fields) && !empty($fields)) {
+            $string_fields[] = $this->set_fields(array($table => $fields));
+          } else {
+            $string_fields[] = $this->get_fields(array($fields));
+          }
         }
-      }
-      $query[] = 'SELECT ' . implode(',', $string_fields);
-    } else {
-      $table = array();
-      if (isset($conditions['from']) && !empty($conditions['from'])) {
-        $table[] = $conditions['from'];
+        $query[] = 'SELECT ' . implode(',', $string_fields);
       } else {
-        $table[] = $this->_table;
+        $table = array();
+        if (isset($conditions['from']) && !empty($conditions['from'])) {
+          $table[] = $conditions['from'];
+        } else {
+          $table[] = $this->_table;
+        }
+        if (isset($conditions['join']) && !empty($conditions['join'])) {
+          foreach ($conditions['join'] as $table_join => $join) {
+            $table[] = $table_join;
+          }
+        }
+        $query[] = 'SELECT ' . $this->get_fields($table);
       }
-      if (isset($conditions['join']) && !empty($conditions['join'])) {
-        foreach ($conditions['join'] as $table_join => $join) {
-          $table[] = $table_join;
+    } else {
+      if ($type != 'count') {
+        $query[] = 'SELECT' . $conditions['fields'];
+      } else {
+        if (isset($conditions['from']) && !empty($conditions['from'])) {
+          $query[] = 'SELECT COUNT(' . $this->_table_from_string($conditions['from'] . '.id) AS count');
+        } else {
+          $table[] = 'SELECT COUNT(' . $this->_table . '.id) AS count';
         }
       }
-      $query[] = 'SELECT ' . $this->get_fields($table);
     }
 
     if (isset($conditions['from']) && !empty($conditions['from'])) {
@@ -166,14 +183,23 @@ class OrmModel extends BehaviorModel {
 
     switch ($type) {
       case 'first':
-        return $this->mapper_result($data->row_array());
+        if ($mapper) {
+          return $this->mapper_result($data->row_array());
+        } else {
+          return $data->row_array();
+        }
         break;
       case 'count':
-        return $data->num_rows();
+        $count = $data->row_array();
+        return $count['count'];
         break;
       case 'all':
       default :
-        return $this->mapper_result($data->result_array());
+        if ($mapper) {
+          return $this->mapper_result($data->result_array());
+        } else {
+          return $data->result_array();
+        }
         break;
     }
   }
