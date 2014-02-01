@@ -247,7 +247,7 @@ $config['encryption_key'] = '22608126a04da6c7f4cf740a97bb948a';
   | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
   |
  */
-$config['sess_cookie_name'] = 'comradecms';
+$config['sess_cookie_name'] = 'sipsiko';
 $config['sess_expiration'] = 7200;
 $config['sess_expire_on_close'] = TRUE;
 $config['sess_encrypt_cookie'] = TRUE;

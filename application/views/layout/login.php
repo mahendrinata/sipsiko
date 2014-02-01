@@ -51,27 +51,34 @@
     <meta content="width=device-width, initial-scale=1.0" charset="utf-8" name="viewport"/>
   </head>
   <body>
+    <?php echo bootstrap_alert($this->session->flashdata('message'), 'center'); ?>
     <div class="container-fluid">
       <div class="login">
         <div class="login-container"><img alt="Logo login@2x" height="30" src="images/logo-login_2x.png" width="100"/>
-          <form>
-            <div class="form-group">
-              <div class="input-group"><span class="input-group-addon"><i class="icon-envelope"></i></span>
-                <input class="form-control" placeholder="Email" type="text"/>
-              </div>
+          <?php echo form_open('guest/users/login'); ?>
+          <div class="form-group">
+            <div class="input-group"><span class="input-group-addon"><i class="icon-envelope"></i></span>
+              <?php
+              echo form_input('username', NULL, 'class="form-control" placeholder="Username or Email"');
+              echo form_error('username', '<span class="label label-important">', '</span>');
+              ?>
             </div>
-            <div class="form-group">
-              <div class="input-group"><span class="input-group-addon"><i class="icon-lock"></i></span>
-                <input class="form-control" placeholder="Password" type="password"/>
-              </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group"><span class="input-group-addon"><i class="icon-lock"></i></span>
+              <?php 
+              echo form_password('password', NULL, 'class="form-control" placeholder="Password"'); 
+              echo form_error('password', '<span class="label label-important">', '</span>');
+              ?>
             </div>
-            <div class="form-group">
-              <label class="checkbox">
-                <input type="checkbox"/>
-                Remember me</label>
-            </div>
-            <div class="btn btn-lg btn-primary login-submit"> Log in </div>
-          </form>
+          </div>
+          <div class="form-group">
+            <label class="checkbox">
+              <input type="checkbox"/>
+              Remember me</label>
+          </div>
+          <?php echo form_submit('submit', 'Login', 'class="btn btn-lg btn-primary login-submit"'); ?>
+          <?php echo form_close(); ?>
           <a href="index.html#">Forgot password?</a></div>
       </div>
     </div>  </body>

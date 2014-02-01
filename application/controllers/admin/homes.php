@@ -9,7 +9,7 @@ if (!defined('BASEPATH'))
 class Homes extends Admin_Controller {
 
   public function index() {
-    $this->load->view(self::$layout, $this->data);
+    $this->load->view(self::$LAYOUT, $this->data);
   }
 
 }

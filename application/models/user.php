@@ -20,6 +20,7 @@ class User extends App_Model {
     array('name' => 'phone', 'type' => 'varchar'),
     array('name' => 'photo', 'type' => 'varchar'),
     array('name' => 'description', 'type' => 'text'),
+    array('name' => 'status', 'type' => 'varchar', 'index' => TRUE, 'require' => TRUE),
     array('name' => 'password', 'type' => 'varchar', 'require' => TRUE),
     array('name' => 'password_salt', 'type' => 'varchar', 'require' => TRUE),
     array('name' => 'activation_code', 'type' => 'varchar', 'require' => TRUE),
