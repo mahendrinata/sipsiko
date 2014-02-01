@@ -69,4 +69,22 @@ if (!function_exists('external_js')) {
   }
 
 }
+
+if (!function_exists('has_error')) {
+
+  function has_error($field = NULL, $return = 'has-error') {
+    $error = form_error('username');
+    return (empty($error)) ? NULL : $return;
+  }
+
+}
+
+if (!function_exists('label_error')) {
+
+  function label_error($field = NULL, $preffix = '<label class="control-label">', $suffix = '</label>') {
+    $error = form_error($field, $preffix, $suffix);
+    return (empty($error)) ? NULL : $error;
+  }
+
+}
 ?>

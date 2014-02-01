@@ -402,14 +402,15 @@ function bootstrap_alert_before($position = NULL, $uid = NULL) {
   $output = '<div id="error-message-' . $uid . '" style="display: none;">';
   $output .= '<div class="container-fluid">';
   switch ($position) {
-    case 'center':
-      $output .= '<div class="span3"></div><div class="span6">';
-      break;
     case 'right':
       $output .= '<div class="span6 pull-right">';
       break;
     case 'left':
       $output .= '<div class="span6 pull-left">';
+      break;
+    case 'center':
+    default :
+      $output .= '<div class="span3"></div><div class="span6">';
       break;
   }
   return $output;

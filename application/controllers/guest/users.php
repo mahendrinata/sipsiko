@@ -18,7 +18,7 @@ class Users extends Guest_Controller {
         'username' => App_Controller::$POST_DATA['username'],
         'status' => Status::ACTIVE));
 
-      if ($this->get_validate_password(App_Controller::$POST_DATA['password'], $user)) {
+      if (!empty($user) && $this->get_validate_password(App_Controller::$POST_DATA['password'], $user)) {
         $this->show_message('login', TRUE, 'You success login.');
 
         $this->session->set_userdata('user', $user);
