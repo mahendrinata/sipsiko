@@ -13,7 +13,9 @@ class Answer extends App_Model {
     array('name' => 'id', 'type' => 'integer', 'require' => TRUE, 'primary_key' => TRUE, 'auto_increment' => TRUE),
     array('name' => 'description', 'type' => 'text'),
     array('name' => 'value', 'type' => 'integer'),
+    array('name' => 'status', 'type' => 'varchar', 'index' => TRUE),
     array('name' => 'question_id', 'type' => 'integer', 'index' => TRUE),
+    array('name' => 'variable_id', 'type' => 'integer', 'index' => TRUE),
     array('name' => 'created_at', 'type' => 'datetime'),
     array('name' => 'updated_at', 'type' => 'datetime'),
   );

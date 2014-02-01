@@ -14,7 +14,7 @@ class Company extends App_Model {
     array('name' => 'slug', 'type' => 'varchar', 'require' => TRUE, 'unique' => TRUE, 'index' => TRUE),
     array('name' => 'name', 'type' => 'varchar', 'require' => TRUE),
     array('name' => 'description', 'type' => 'text'),
-    array('name' => 'status', 'type' => 'varchar'),
+    array('name' => 'status', 'type' => 'varchar', 'index' => TRUE),
     array('name' => 'user_id', 'type' => 'integer', 'index' => TRUE),
     array('name' => 'created_at', 'type' => 'datetime'),
     array('name' => 'updated_at', 'type' => 'datetime'),

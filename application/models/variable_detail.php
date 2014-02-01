@@ -12,6 +12,7 @@ class Variable_detail extends App_Model {
   public $fields = array(
     array('name' => 'id', 'type' => 'integer', 'require' => TRUE, 'primary_key' => TRUE, 'auto_increment' => TRUE),
     array('name' => 'description', 'type' => 'text'),
+    array('name' => 'status', 'type' => 'varchar', 'index' => TRUE),
     array('name' => 'company_id', 'type' => 'integer', 'index' => TRUE),
     array('name' => 'variable_id', 'type' => 'integer', 'index' => TRUE),
     array('name' => 'created_at', 'type' => 'datetime'),
