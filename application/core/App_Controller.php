@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * App Controller use to add all function used by any user
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class AppController extends BehaviorController {
+class App_Controller extends Behavior_Controller {
 
   public static $offset = 4;
   public static $limit = 10;

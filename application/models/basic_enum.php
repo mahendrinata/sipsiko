@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
-abstract class BasicEnum {
+abstract class Basic_Enum {
 
   private static $constCache = NULL;
 

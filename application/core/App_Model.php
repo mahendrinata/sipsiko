@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * App Model use to add all behavior model
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class AppModel extends OrmModel {
+class App_Model extends ORM_Model {
 
   protected $return_type = 'array';
   public $before_create = array('set_slug', 'created_at', 'updated_at');

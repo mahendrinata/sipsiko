@@ -7,7 +7,7 @@ if (!defined('BASEPATH'))
  * App Model use to add all behavior model
  * @author Mahendri Winata <mahen.0112@gmail.com>
  */
-class BehaviorController extends CI_Controller {
+class Behavior_Controller extends CI_Controller {
 
   function __construct() {
     parent::__construct();

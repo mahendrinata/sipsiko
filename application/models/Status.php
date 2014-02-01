@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
-abstract class Status extends BasicEnum {
+abstract class Status extends Basic_Enum {
 
   const ACTIVE = 'ACTIVE';
   const INACTIVE = 'INACTIVE';

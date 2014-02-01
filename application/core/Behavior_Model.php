@@ -10,7 +10,7 @@ if (!defined('BASEPATH'))
  * @link http://github.com/jamierumbelow/codeigniter-base-model
  * @copyright Copyright (c) 2012, Jamie Rumbelow <http://jamierumbelow.net>
  */
-class BehaviorModel extends CI_Model {
+class Behavior_Model extends CI_Model {
   /* --------------------------------------------------------------
    * VARIABLES
    * ------------------------------------------------------------ */
@@ -777,12 +777,12 @@ class BehaviorModel extends CI_Model {
       return $data;
     }
   }
-  
-  protected function _table_from_class($class = NULL){
+
+  protected function _table_from_class($class = NULL) {
     return preg_replace('/(?<!^)([A-Z])/', '_\\1', $class);
   }
-  
-  protected function _table_from_string($string = NULL){
+
+  protected function _table_from_string($string = NULL) {
     return plural(preg_replace('/(_m|_model)?$/', '', strtolower($this->_table_from_class($string))));
   }
 
