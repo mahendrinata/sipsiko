@@ -11,11 +11,9 @@ class Company_Controller extends App_Controller {
 
   public function __construct() {
     parent::__construct();
-    if (!isset(App_Controller::$POST_DATA[Role::COMPANY]) || empty(App_Controller::$POST_DATA[Role::COMPANY])) {
+    if (!isset(App_Controller::$USER) || empty(App_Controller::$USER) || App_Controller::$USER['role'] != Role::COMPANY) {
       $this->error_message('access', FALSE);
       redirect('guest/users/login');
-    }else {
-      App_Controller::$USER = App_Controller::$POST_DATA[Role::COMPANY];
     }
   }
 

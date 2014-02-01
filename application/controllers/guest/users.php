@@ -17,7 +17,7 @@ class Users extends Guest_Controller {
       if ($this->get_validate_password(App_Controller::$POST_DATA['password'], $user)) {
         $this->error_message('login', TRUE, 'You success login.');
 
-        $this->session->set_userdata($user['role'], $user);
+        $this->session->set_userdata('user', $user);
         redirect(strtolower($user['role']) . '/homes');
       } else {
         $this->error_message('login', FALSE, 'Sorry, Your username or password is wrong.');

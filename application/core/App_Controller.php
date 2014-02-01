@@ -41,6 +41,7 @@ class App_Controller extends Behavior_Controller {
     App_Controller::$UID = App_Controller::$PAGE = $this->uri->segment(5);
 
     App_Controller::$ACTIVE_SESSION = $this->session->all_userdata();
+    App_Controller::$USER = App_Controller::$ACTIVE_SESSION['user'];
 
     App_Controller::$POST_DATA = $this->input->post();
 
