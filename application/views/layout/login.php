@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><?php echo isset($title) ? 'SIPSIKO - ' . $title : 'SIPSIKO - Sistem Informasi Psikotest Online'; ?></title>
+    <title><?php echo isset($title) ? 'SIPSIKO - ' . $title : 'SIPSIKO - Sistem Pakar Tes Psikotes Online'; ?></title>
     <?php
     echo external_css('http://fonts.googleapis.com/css?family=Lato:100,300,400,700');
     echo css(array(
@@ -53,21 +53,22 @@
   <body>
     <div class="container-fluid">
       <div class="login">
-        <div class="login-container"><img alt="Logo login@2x" height="30" src="images/logo-login_2x.png" width="100"/>
-          <?php echo form_open('guest/users/login'); ?>
+        <div class="login-container">
+          <?php echo img(array('src' => 'assets/img/logo-login_2x.png', 'height' => 30, 'width' => 100)); ?>
+          <?php echo form_open('login'); ?>
           <div class="form-group <?php echo has_error('username') ?>">
-            <?php echo label_error('username') ?>
             <div class="input-group">
               <span class="input-group-addon"><i class="icon-envelope"></i></span>
               <?php echo form_input('username', NULL, 'class="form-control" placeholder="Username"'); ?>
             </div>
+            <?php echo label_error('username') ?>
           </div>
           <div class="form-group <?php echo has_error('password'); ?>">
-            <?php echo label_error('password'); ?>
             <div class="input-group">
               <span class="input-group-addon"><i class="icon-lock"></i></span>
               <?php echo form_password('password', NULL, 'class="form-control" placeholder="Password"'); ?>
             </div>
+            <?php echo label_error('password'); ?>
           </div>
           <div class="form-group">
             <label class="checkbox">

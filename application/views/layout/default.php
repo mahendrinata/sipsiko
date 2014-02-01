@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><?php echo isset($title) ? 'SIPSIKO - ' . $title : 'SIPSIKO - Sistem Informasi Psikotest Online'; ?></title>
+    <title><?php echo isset($title) ? 'SIPSIKO - ' . $title : 'SIPSIKO - Sistem Pakar Tes Psikotes Online'; ?></title>
     <?php
     echo external_css('http://fonts.googleapis.com/css?family=Lato:100,300,400,700');
     echo css(array(
