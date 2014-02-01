@@ -11,9 +11,6 @@ class Guest_Controller extends App_Controller {
 
   public function __construct() {
     parent::__construct();
-    if (isset(App_Controller::$USER) && !empty(App_Controller::$USER)) {
-      redirect(strtolower(App_Controller::$USER['role']) . '/homes');
-    }
   }
 
 }

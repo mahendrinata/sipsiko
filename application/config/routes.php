@@ -41,8 +41,11 @@ if (!defined('BASEPATH'))
   |
  */
 
-$route['default_controller'] = "admin/homes";
+$route['default_controller'] = "guest/homes/index";
 $route['404_override'] = '';
+$route['login'] = 'guest/users/login';
+$route['logout'] = 'guest/users/logout';
+$route['register'] = 'guest/users/register';
 
 
 /* End of file routes.php */

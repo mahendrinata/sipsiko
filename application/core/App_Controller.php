@@ -29,11 +29,10 @@ class App_Controller extends Behavior_Controller {
     parent::__construct();
 
     $this->initialize();
-
   }
 
   private function initialize() {
-    App_Controller::$DIRECTORY = $this->data['directory'] = $this->router->directory;
+    App_Controller::$DIRECTORY = $this->data['directory'] = str_replace('/', '', $this->router->directory);
     App_Controller::$CLASS = $this->data['class'] = $this->router->class;
     App_Controller::$METHOD = $this->data['method'] = ($this->router->class == $this->router->method) ? 'index' : $this->router->method;
 
@@ -41,7 +40,9 @@ class App_Controller extends Behavior_Controller {
     App_Controller::$UID = App_Controller::$PAGE = $this->uri->segment(5);
 
     App_Controller::$ACTIVE_SESSION = $this->session->all_userdata();
-    App_Controller::$USER = App_Controller::$ACTIVE_SESSION['user'];
+    if (isset(App_Controller::$ACTIVE_SESSION['user']) && !empty(App_Controller::$ACTIVE_SESSION['user'])) {
+      App_Controller::$USER = App_Controller::$ACTIVE_SESSION['user'];
+    }
 
     App_Controller::$POST_DATA = $this->input->post();
 
@@ -52,11 +53,11 @@ class App_Controller extends Behavior_Controller {
     }
 
     App_Controller::$LAYOUT = 'layout/default';
-    
+
     $this->data['title'] = $this->get_title();
   }
 
-  protected function error_message($action = NULL, $callback_action = FALSE, $message = NULL) {
+  protected function show_message($action = NULL, $callback_action = FALSE, $message = NULL) {
     $actions = array(
       'create' => array(
         TRUE => 'Create data success..',
@@ -71,8 +72,8 @@ class App_Controller extends Behavior_Controller {
         TRUE => 'The page you are correct access.',
         FALSE => 'An error occurred on the page you access.'),
       'access' > array(
-        TRUE => 'You have access this page',
-        FALSE => 'You do not have access this page'
+      TRUE => 'You have access this page',
+      FALSE => 'You do not have access this page'
       )
     );
 
@@ -160,7 +161,7 @@ class App_Controller extends Behavior_Controller {
 
   protected function validate_uid($id = NULL, $uid = NULL) {
     if ($this->get_uid($id) != $uid) {
-      $this->error_message('redirect');
+      $this->show_message('redirect');
       redirect('admin/' . $this->router->class);
     }
   }
@@ -198,7 +199,7 @@ class App_Controller extends Behavior_Controller {
     if ($callback) {
       redirect(App_Controller::$DIRECTORY . '/' . App_Controller::$CLASS);
     }
-    $this->error_message($type, $callback);
+    $this->show_message($type, $callback);
   }
 
   protected function get_title() {
