@@ -9,10 +9,10 @@
  */
 if (!function_exists('css')) {
 
-  function css($links = array()) {
+  function css($links = array(), $folder = 'assets/') {
     $return = NULL;
     foreach ($links as $link) {
-      $return .= external_css(base_url() . 'assets/css/' . $link . '.css');
+      $return .= external_css(base_url() . $folder . 'css/' . $link . '.css');
     }
     return $return;
   }
@@ -45,10 +45,10 @@ if (!function_exists('external_css')) {
  */
 if (!function_exists('js')) {
 
-  function js($links = array()) {
+  function js($links = array(), $folder = 'assets/') {
     $return = NULL;
     foreach ($links as $link) {
-      $return .= external_js(base_url() . 'assets/js/' . $link . '.js');
+      $return .= external_js(base_url() . $folder . 'js/' . $link . '.js');
     }
     return $return;
   }

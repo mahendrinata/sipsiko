@@ -3,8 +3,9 @@
   <head>
     <title><?php echo isset($title) ? 'SIPSIKO - ' . $title : 'SIPSIKO - Sistem Pakar Tes Psikotes Online'; ?></title>
     <?php
-    echo external_css('http://fonts.googleapis.com/css?family=Lato:100,300,400,700');
+    echo link_tag('assets/favicon.gif', 'shortcut icon', 'image/ico');
     echo css(array(
+      'font',
       'application',
       'isotope',
       'normalize',
@@ -21,12 +22,10 @@
       'color/orange',
       'color/magenta',
       'color/gray'
-    ));
-    echo external_js(array(
-      'http://code.jquery.com/jquery-1.10.1.min.js',
-      'http://code.jquery.com/ui/1.10.3/jquery-ui.js'
-    ));
+      ), 'assets/backend/');
     echo js(array(
+      'jquery-1.10.1.min',
+      'jquery-ui',
       'modernizr.custom',
       'bootstrap.min',
       'jquery.mousewheel',
@@ -46,7 +45,7 @@
       'select2',
       'styleswitcher',
       'main'
-    ));
+      ), 'assets/backend/');
     ?>
     <meta content="width=device-width, initial-scale=1.0" charset="utf-8" name="viewport"/>
   </head>

@@ -11,6 +11,8 @@ class Guest_Controller extends App_Controller {
 
   public function __construct() {
     parent::__construct();
+
+    App_Controller::$LAYOUT = 'layout/frontend';
   }
 
 }
