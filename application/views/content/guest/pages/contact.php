@@ -25,10 +25,10 @@
         <h4>Send us a message</h4>
         <div id="message"></div>
         <form method="post" action="#" name="contactform" id="contactform">
-          <input name="name" type="text" id="name" size="30" value="Name" >
-          <input name="email" type="text" id="email" size="30" value="Email" >
-          <input name="phone" type="text" id="phone" size="30" value="Phone" class="last" >
-          <textarea name="comments" cols="40" rows="3" id="comments" value="Message">Message</textarea>
+          <input name="name" type="text" id="name" size="30" placeholder="Name" >
+          <input name="email" type="text" id="email" size="30" placeholder="Email" >
+          <input name="phone" type="text" id="phone" size="30" placeholder="Phone" class="last" >
+          <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message">Message</textarea>
           <input type="submit" class="btn-image" id="submit" value="Submit" />
         </form>
       </div>

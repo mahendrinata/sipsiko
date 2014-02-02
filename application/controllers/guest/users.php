@@ -8,11 +8,34 @@ if (!defined('BASEPATH'))
  */
 class Users extends Guest_Controller {
 
+  public function register() {
+    if (!empty(App_Controller::$POST_DATA)) {
+      if (!in_array(App_Controller::$POST_DATA['role'], array(Role::COMPANY, Role::MEMBER))) {
+        App_Controller::$POST_DATA['role'] = NULL;
+      }
+    }
+
+    $this->form_validation->set_rules($this->User->validate);
+    if ($this->form_validation->run()) {
+      $user = $this->set_encrype_user_data(App_Controller::$POST_DATA);
+      $user['status'] = Status::INACTIVE;
+      $user['activation_code'] = $this->set_activation_code($user);
+      $register = $this->User->insert($user, TRUE);
+      if ($register) {
+        $this->show_message('insert', $register, 'Now, You registered as ' . ucfirst(App_Controller::$POST_DATA['role'] . ' in SIPSIKO'));
+        redirect('login');
+      } else {
+        $this->show_message('insert', $register);
+      }
+    }
+    $this->load->view(App_Controller::$LAYOUT, $this->data);
+  }
+  
   public function login() {
     if (isset(App_Controller::$USER) && !empty(App_Controller::$USER)) {
       redirect(strtolower(App_Controller::$USER['role']) . '/homes');
     }
-    
+
     if ($this->form_validation->run()) {
       $user = $this->User->get_by(array(
         'username' => App_Controller::$POST_DATA['username'],

@@ -29,9 +29,7 @@ class User extends App_Model {
     array('name' => 'created_at', 'type' => 'datetime'),
     array('name' => 'updated_at', 'type' => 'datetime'),
   );
-  public $before_create = array('set_data', 'created_at', 'updated_at');
-  public $before_update = array('set_data', 'updated_at');
-  public $has_many = array('company', 'emlpoyee', 'user_test');
+  public $has_many = array('company', 'employee', 'user_test');
   public $validate = array(
     array(
       'field' => 'username',
@@ -46,7 +44,12 @@ class User extends App_Model {
     array(
       'field' => 'email',
       'label' => 'Email',
-      'rules' => 'required|valid_email'
+      'rules' => 'required|valid_email|is_unique(users.email)'
+    ),
+    array(
+      'field' => 'role',
+      'label' => 'Role',
+      'rules' => 'required'
     ),
     array(
       'field' => 'password',
@@ -54,18 +57,11 @@ class User extends App_Model {
       'rules' => 'required|min_length[5]'
     ),
     array(
-      'field' => 'confirmation_password',
-      'label' => 'Confirmation Password',
+      'field' => 'password_confirmation',
+      'label' => 'Password Confirmation',
       'rules' => 'required|min_length[5]|matches[password]'
     )
   );
-
-  function set_data($row) {
-    $row['password'] = $row['password_secure'];
-    unset($row['confirmation_password']);
-    unset($row['password_secure']);
-    return $row;
-  }
 
 }
 

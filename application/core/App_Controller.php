@@ -144,7 +144,8 @@ class App_Controller extends Behavior_Controller {
 
   protected function set_encrype_user_data($data = array()) {
     $data['password_salt'] = $this->get_password_salt();
-    $data['password_secure'] = $this->set_password($data['password'], $data['password_salt']);
+    $data['password'] = $this->set_password($data['password'], $data['password_salt']);
+    unset($data['password_confirmation']);
     return $data;
   }
 
@@ -208,6 +209,25 @@ class App_Controller extends Behavior_Controller {
     } else {
       return ucwords(App_Controller::$METHOD . ' ' . App_Controller::$CLASS);
     }
+  }
+
+  protected function set_activation_code($user = array()) {
+    $activation_code = md5($this->session->encryption_key . $user['username'] . $this->get_password_salt());
+    $this->send_activation_code($activation_code, $user);
+    return $activation_code;
+  }
+
+  private function send_activation_code($code, $user) {
+    $this->send_email_by_sipsiko($user['email'], 'Activation SIPSIKO', 'Click ' . anchor('activation/' . $code, 'here') . ' to activation SIPSIKO ' . $user['role'] . ' with username ' . $user['username']);
+  }
+
+  protected function send_email_by_sipsiko($to = NULL, $subject = NULL, $message = NULL) {
+    $this->load->library('email');
+    $this->email->from('sipsiko.indonesia@gmail.com', 'SIPSIKO Indonesia');
+    $this->email->to($to);
+    $this->email->subject($subject);
+    $this->email->message($message);
+    $this->email->send();
   }
 
 }
