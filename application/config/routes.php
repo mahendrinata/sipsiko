@@ -48,6 +48,7 @@ $route['404_override'] = '';
 $route['login'] = 'guest/users/login';
 $route['logout'] = 'guest/users/logout';
 $route['register'] = 'guest/users/register';
+$route['activation/(:any)'] = 'guest/users/activation/$1';
 
 //Route page
 $route['home'] = 'guest/pages/index';

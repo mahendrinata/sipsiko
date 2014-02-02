@@ -30,7 +30,18 @@ class Users extends Guest_Controller {
     }
     $this->load->view(App_Controller::$LAYOUT, $this->data);
   }
-  
+
+  public function activation($code) {
+    $user = $this->User->set_active_by_code($code);
+    if ($user) {
+      $this->show_message('update', $user, 'Now, Your Account is active');
+      redirect('login');
+    } else {
+      $this->show_message('update', $user, 'Your activation code is wrong.');
+      redirect('/');
+    }
+  }
+
   public function login() {
     if (isset(App_Controller::$USER) && !empty(App_Controller::$USER)) {
       redirect(strtolower(App_Controller::$USER['role']) . '/homes');
