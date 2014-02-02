@@ -26,10 +26,19 @@
       'jquery.easing.1.3',
       'script',
       ), 'assets/frontend/');
+
+    if ($method == 'contact') {
+      echo external_js('http://maps.google.com/maps/api/js?sensor=false');
+      echo js(array('maps'), 'assets/frontend/');
+    }
     ?>
 
   </head>
-  <body>
+  <body <?php
+  if ($method == 'contact') {
+    echo 'onload="initialize()"';
+  }
+  ?>>
     <div id="header-bg"></div>
     <?php
     $this->load->view('element/navigation/frontend_nav');

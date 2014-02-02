@@ -29,7 +29,7 @@ class Pages extends Guest_Controller {
   }
   
   public function contact() {
-    $this->load->view(App_Controller::$LAYOUT, $this->data);
+    $this->load->view('layout/frontend_maps', $this->data);
   }
 }
 

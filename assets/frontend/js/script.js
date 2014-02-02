@@ -1,14 +1,17 @@
-$(document).ready(function() {
+var tpj = jQuery;
+tpj.noConflict();
+
+tpj(document).ready(function() {
 
     // Blur images on mouse over
-    $(".portfolio a").hover(function() {
-        $(this).children("img").animate({opacity: 0.75}, "fast");
+    tpj(".portfolio a").hover(function() {
+        tpj(this).children("img").animate({opacity: 0.75}, "fast");
     }, function() {
-        $(this).children("img").animate({opacity: 1.0}, "slow");
+        tpj(this).children("img").animate({opacity: 1.0}, "slow");
     });
 
     // Initialize prettyPhoto plugin
-    $(".portfolio a[rel^='prettyPhoto']").prettyPhoto({
+    tpj(".portfolio a[rel^='prettyPhoto']").prettyPhoto({
         theme: 'pp_default',
         autoplay_slideshow: false,
         overlay_gallery: false,
@@ -16,36 +19,36 @@ $(document).ready(function() {
     });
 
     // Clone portfolio items to get a second collection for Quicksand plugin
-    var $portfolioClone = $(".portfolio").clone();
+    var tpjportfolioClone = tpj(".portfolio").clone();
 
     // Attempt to call Quicksand on every click event handler
-    $(".filter a").click(function(e) {
+    tpj(".filter a").click(function(e) {
 
-        $(".filter li").removeClass("current");
+        tpj(".filter li").removeClass("current");
 
         // Get the class attribute value of the clicked link
-        var $filterClass = $(this).parent().attr("class");
+        var tpjfilterClass = tpj(this).parent().attr("class");
 
-        if ($filterClass == "all") {
-            var $filteredPortfolio = $portfolioClone.find("li");
+        if (tpjfilterClass == "all") {
+            var tpjfilteredPortfolio = tpjportfolioClone.find("li");
         } else {
-            var $filteredPortfolio = $portfolioClone.find("li[data-type~=" + $filterClass + "]");
+            var tpjfilteredPortfolio = tpjportfolioClone.find("li[data-type~=" + tpjfilterClass + "]");
         }
 
         // Call quicksand
-        $(".portfolio").quicksand($filteredPortfolio, {
+        tpj(".portfolio").quicksand(tpjfilteredPortfolio, {
             duration: 800,
             easing: 'easeInOutQuad'
         }, function() {
 
             // Blur newly cloned portfolio items on mouse over and apply prettyPhoto
-            $(".portfolio a").hover(function() {
-                $(this).children("img").animate({opacity: 0.75}, "fast");
+            tpj(".portfolio a").hover(function() {
+                tpj(this).children("img").animate({opacity: 0.75}, "fast");
             }, function() {
-                $(this).children("img").animate({opacity: 1.0}, "slow");
+                tpj(this).children("img").animate({opacity: 1.0}, "slow");
             });
 
-            $(".portfolio a[rel^='prettyPhoto']").prettyPhoto({
+            tpj(".portfolio a[rel^='prettyPhoto']").prettyPhoto({
                 theme: 'pp_default',
                 autoplay_slideshow: false,
                 overlay_gallery: false,
@@ -54,7 +57,7 @@ $(document).ready(function() {
         });
 
 
-        $(this).parent().addClass("current");
+        tpj(this).parent().addClass("current");
 
         // Prevent the browser jump to the link anchor
         e.preventDefault();
@@ -62,21 +65,21 @@ $(document).ready(function() {
 
 
     // hide #back-top first
-    $("#back-top").hide();
+    tpj("#back-top").hide();
 
     // fade in #back-top
-    $(function() {
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) {
-                $('#back-top').fadeIn();
+    tpj(function() {
+        tpj(window).scroll(function() {
+            if (tpj(this).scrollTop() > 100) {
+                tpj('#back-top').fadeIn();
             } else {
-                $('#back-top').fadeOut();
+                tpj('#back-top').fadeOut();
             }
         });
 
         // scroll body to 0px on click
-        $('#back-top a').click(function() {
-            $('body,html').animate({
+        tpj('#back-top a').click(function() {
+            tpj('body,html').animate({
                 scrollTop: 0
             }, 800);
             return false;
@@ -86,13 +89,13 @@ $(document).ready(function() {
 });
 
 
-$(function() {
-    $(".meter > span").each(function() {
-        $(this)
-                .data("origWidth", $(this).width())
+tpj(function() {
+    tpj(".meter > span").each(function() {
+        tpj(this)
+                .data("origWidth", tpj(this).width())
                 .width(0)
                 .animate({
-                    width: $(this).data("origWidth")
+                    width: tpj(this).data("origWidth")
                 }, 1200);
     });
 });
