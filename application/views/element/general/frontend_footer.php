@@ -9,9 +9,9 @@
         <li class="footer-last"><a href="#">Contact</a></li>
       </ul>
       <ul class="footer-address">
-        <li><img src="images/home-icon.png"/>314 Columbus Ave. , San Francisco , CA 94133 </li>
-        <li><img src="images/phone-icon.png"/>(123) 456-78910</li>
-        <li><img src="images/email-icon.png"/>office@creative.com</li>
+        <li><img src="<?php echo base_url() . 'assets/frontend/img/'; ?>home-icon.png"/>314 Columbus Ave. , San Francisco , CA 94133 </li>
+        <li><img src="<?php echo base_url() . 'assets/frontend/img/'; ?>phone-icon.png"/>(123) 456-78910</li>
+        <li><img src="<?php echo base_url() . 'assets/frontend/img/'; ?>email-icon.png"/>office@creative.com</li>
       </ul>
     </div>	
     <div class="footer-right" id="footer-newsletter">

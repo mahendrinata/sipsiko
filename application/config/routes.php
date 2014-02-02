@@ -41,11 +41,22 @@ if (!defined('BASEPATH'))
   |
  */
 
-$route['default_controller'] = "guest/homes/index";
+$route['default_controller'] = "guest/pages/index";
 $route['404_override'] = '';
+
+//Route guest user
 $route['login'] = 'guest/users/login';
 $route['logout'] = 'guest/users/logout';
 $route['register'] = 'guest/users/register';
+
+//Route page
+$route['home'] = 'guest/pages/index';
+$route['about-us'] = 'guest/pages/about';
+$route['feature'] = 'guest/pages/feature';
+$route['company'] = 'guest/pages/company';
+$route['member'] = 'guest/pages/member';
+$route['contact'] = 'guest/pages/contact';
+
 
 
 /* End of file routes.php */

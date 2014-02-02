@@ -11,29 +11,41 @@
     <?php
     echo css(array(
       'style',
-      'style-green',
-      'style-orange',
+//      'style-green',
+//      'style-orange',
       'fullwidth',
       'revolution-settings'
       ), 'assets/frontend/');
     echo js(array(
       'jquery.min',
       'styleswitch',
+      'script',
       'selectnav.min',
       'rs-plugin/jquery.themepunch.plugins.min',
       'rs-plugin/jquery.themepunch.revolution.min',
-      'resolution'
+      'resolution',
+      'jquery.jigowatt',
       ), 'assets/frontend/');
+
+    if ($method == 'contact') {
+      echo external_js('http://maps.google.com/maps/api/js?sensor=false');
+      echo js(array('maps'), 'assets/frontend/');
+    }
     ?>
 
   </head>
-  <body>
+  <body <?php
+  if ($method == 'contact') {
+    echo 'onload="initialize()"';
+  }
+  ?>>
     <div id="header-bg"></div>
     <?php
-      $this->load->view('element/navigation/frontend_nav');
-      $this->load->view('element/general/content');
-      $this->load->view('element/general/frontend_footer');
-      $this->load->view('element/general/frontend_css_switcher')
+    $this->load->view('element/navigation/frontend_nav');
+    $this->load->view('element/general/content');
+    $this->load->view('element/general/frontend_footer');
+//    $this->load->view('element/general/frontend_css_switcher');
+    $this->load->view('element/general/frontend_back_top');
     ?>
   </body>
 </html>

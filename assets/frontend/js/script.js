@@ -1,62 +1,98 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
-	// Blur images on mouse over
-	$(".portfolio a").hover( function(){ 
-		$(this).children("img").animate({ opacity: 0.75 }, "fast"); 
-	}, function(){ 
-		$(this).children("img").animate({ opacity: 1.0 }, "slow"); 
-	}); 
-	
-	// Initialize prettyPhoto plugin
-	$(".portfolio a[rel^='prettyPhoto']").prettyPhoto({
-		theme:'pp_default', 
-		autoplay_slideshow: false, 
-		overlay_gallery: false, 
-		show_title: false
-	});
+    // Blur images on mouse over
+    $(".portfolio a").hover(function() {
+        $(this).children("img").animate({opacity: 0.75}, "fast");
+    }, function() {
+        $(this).children("img").animate({opacity: 1.0}, "slow");
+    });
 
-	// Clone portfolio items to get a second collection for Quicksand plugin
-	var $portfolioClone = $(".portfolio").clone();
-	
-	// Attempt to call Quicksand on every click event handler
-	$(".filter a").click(function(e){
-		
-		$(".filter li").removeClass("current");	
-		
-		// Get the class attribute value of the clicked link
-		var $filterClass = $(this).parent().attr("class");
+    // Initialize prettyPhoto plugin
+    $(".portfolio a[rel^='prettyPhoto']").prettyPhoto({
+        theme: 'pp_default',
+        autoplay_slideshow: false,
+        overlay_gallery: false,
+        show_title: false
+    });
 
-		if ( $filterClass == "all" ) {
-			var $filteredPortfolio = $portfolioClone.find("li");
-		} else {
-			var $filteredPortfolio = $portfolioClone.find("li[data-type~=" + $filterClass + "]");
-		}
-		
-		// Call quicksand
-		$(".portfolio").quicksand( $filteredPortfolio, { 
-			duration: 800, 
-			easing: 'easeInOutQuad' 
-		}, function(){
-			
-			// Blur newly cloned portfolio items on mouse over and apply prettyPhoto
-			$(".portfolio a").hover( function(){ 
-				$(this).children("img").animate({ opacity: 0.75 }, "fast"); 
-			}, function(){ 
-				$(this).children("img").animate({ opacity: 1.0 }, "slow"); 
-			}); 
-			
-			$(".portfolio a[rel^='prettyPhoto']").prettyPhoto({
-				theme:'pp_default', 
-				autoplay_slideshow: false, 
-				overlay_gallery: false, 
-				show_title: false
-			});
-		});
+    // Clone portfolio items to get a second collection for Quicksand plugin
+    var $portfolioClone = $(".portfolio").clone();
+
+    // Attempt to call Quicksand on every click event handler
+    $(".filter a").click(function(e) {
+
+        $(".filter li").removeClass("current");
+
+        // Get the class attribute value of the clicked link
+        var $filterClass = $(this).parent().attr("class");
+
+        if ($filterClass == "all") {
+            var $filteredPortfolio = $portfolioClone.find("li");
+        } else {
+            var $filteredPortfolio = $portfolioClone.find("li[data-type~=" + $filterClass + "]");
+        }
+
+        // Call quicksand
+        $(".portfolio").quicksand($filteredPortfolio, {
+            duration: 800,
+            easing: 'easeInOutQuad'
+        }, function() {
+
+            // Blur newly cloned portfolio items on mouse over and apply prettyPhoto
+            $(".portfolio a").hover(function() {
+                $(this).children("img").animate({opacity: 0.75}, "fast");
+            }, function() {
+                $(this).children("img").animate({opacity: 1.0}, "slow");
+            });
+
+            $(".portfolio a[rel^='prettyPhoto']").prettyPhoto({
+                theme: 'pp_default',
+                autoplay_slideshow: false,
+                overlay_gallery: false,
+                show_title: false
+            });
+        });
 
 
-		$(this).parent().addClass("current");
+        $(this).parent().addClass("current");
 
-		// Prevent the browser jump to the link anchor
-		e.preventDefault();
-	})
+        // Prevent the browser jump to the link anchor
+        e.preventDefault();
+    });
+
+
+    // hide #back-top first
+    $("#back-top").hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#back-top').fadeIn();
+            } else {
+                $('#back-top').fadeOut();
+            }
+        });
+
+        // scroll body to 0px on click
+        $('#back-top a').click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+
+});
+
+
+$(function() {
+    $(".meter > span").each(function() {
+        $(this)
+                .data("origWidth", $(this).width())
+                .width(0)
+                .animate({
+                    width: $(this).data("origWidth")
+                }, 1200);
+    });
 });
