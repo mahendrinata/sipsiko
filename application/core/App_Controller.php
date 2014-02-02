@@ -223,7 +223,6 @@ class App_Controller extends Behavior_Controller {
 
   protected function send_email_by_sipsiko($to = NULL, $subject = NULL, $message = NULL) {
     $this->load->library('email');
-    $this->email->mailtype('html');
     
     $this->email->from('sipsiko.indonesia@gmail.com', 'SIPSIKO Indonesia');
     $this->email->to($to);
