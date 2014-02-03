@@ -58,7 +58,7 @@ class Users extends Guest_Controller {
   public function reset_password() {
     $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
     if ($this->form_validation->run()) {
-      $user = $this->get_by(array('email' => App_Controller::$POST_DATA['email']));
+      $user = $this->User->get_by(array('email' => App_Controller::$POST_DATA['email']));
       if (!empty($user)) {
         $code = $this->set_activation_code($user);
         $update = $this->User->update($user['id'], array('activation_code' => $code), TRUE);
