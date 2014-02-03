@@ -85,7 +85,7 @@ class Users extends Guest_Controller {
     if ($this->form_validation->run()) {
       
     }
-    $$this->data['user'] = $this->User->get_by(array('activation_code' => $code));
+    $this->data['user'] = $this->User->get_by(array('activation_code' => $code));
     $this->load->view(App_Controller::$LAYOUT, $this->data);
   }
 

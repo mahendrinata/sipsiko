@@ -16,7 +16,7 @@
       <div id="contact-form">
         <div id="message"></div>
         <form method="post" action="set-new-password" name="contactform" id="contactform">
-          <input type="hidden" readonly="readonly" name="id" value="<?php echo $user['id']; ?>">
+          <input type="hidden" readonly="readonly" name="id" value="<?php echo (isset($user['id'])) ? $user['id'] : NULL; ?>">
           <input name="password" type="password" style="width: 85%;max-width: 400px;"placeholder="Password" >
           <div class="clearfix"></div>
           <br/>
