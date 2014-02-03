@@ -21,6 +21,8 @@
       .sipsiko-email-nav{
         padding: 10px;
         border-radius: 10px 10px 0 0;
+        -webkit-border-radius: 10px 10px 0 0;
+        -moz-border-radius: 10px 10px 0 0;
       }
       .sipsiko-email-nav .list{
         float: right;
@@ -65,6 +67,8 @@
         padding: 40px 20px;
         color: #FFF;
         border-radius: 0 0 10px 10px;
+        -webkit-border-radius: 0 0 10px 10px;
+        -moz-border-radius: 0 0 10px 10px;
       }
       .clearfix{
         clear: both;
