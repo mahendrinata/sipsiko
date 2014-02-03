@@ -24,7 +24,7 @@ class Users extends Guest_Controller {
       if ($register) {
         $subject = 'Activation Code SIPSIKO';
         $layout = 'send_activation_code';
-        $message = $this->load->view('email/layout', compact('user', 'layout'), TRUE);
+        $message = $this->load->view('email/default', compact('user', 'layout'), TRUE);
         $this->send_email_by_sipsiko($user['email'], $subject, $message);
 
         $this->show_message('insert', $register, 'Now, You registered as ' . ucfirst(App_Controller::$POST_DATA['role'] . ' in SIPSIKO'));
@@ -47,7 +47,15 @@ class Users extends Guest_Controller {
     }
   }
 
-  public function forgot_password() {
+  public function activation_by_code() {
+    $this->form_validation->set_rules('code', 'Code', 'required');
+    if ($this->form_validation->run()) {
+      $this->activation(App_Controller::$POST_DATA['code']);
+    }
+    $this->load->view(App_Controller::$LAYOUT, $this->data);
+  }
+
+  public function reset_password() {
     $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
     if ($this->form_validation->run()) {
       $user = $this->get_by(array('email' => App_Controller::$POST_DATA['email']));
@@ -56,7 +64,8 @@ class Users extends Guest_Controller {
         $update = $this->User->update($user['id'], array('activation_code' => $code), TRUE);
         if ($update) {
           $subject = 'Reset Password SIPSIKO';
-          $message = $this->load->view('email/reset_password', compact('user'), TRUE);
+          $layout = 'reset_password';
+          $message = $this->load->view('email/reset_password', compact('user', 'layout'), TRUE);
           $this->send_email_by_sipsiko($user['email'], $subject, $message);
 
           $this->show_message('update', TRUE, 'To change password, please check your email.');
@@ -69,8 +78,15 @@ class Users extends Guest_Controller {
     $this->load->view(App_Controller::$LAYOUT, $this->data);
   }
 
-  public function set_new_password() {
-    
+  public function set_new_password($code) {
+    $this->form_validation->set_rules('id', 'ID', 'required');
+    $this->form_validation->set_rules('password', 'Password', 'required');
+    $this->form_validation->set_rules('id', 'ID', 'required');
+    if ($this->form_validation->run()) {
+      
+    }
+    $$this->data['user'] = $this->User->get_by(array('activation_code' => $code));
+    $this->load->view(App_Controller::$LAYOUT, $this->data);
   }
 
   public function login() {

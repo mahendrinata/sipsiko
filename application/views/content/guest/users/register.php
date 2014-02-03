@@ -5,7 +5,7 @@
 </div>
 </div>
 <div id="contact-map" style="height: 500px;">
-  <div id="contact-info" style="top: 165px;">
+  <div id="contact-info" style="top: 250px;">
     <div class="one-fourth">
       <div id="contact-details">
         <h4>Terms and Conditions</h4>
