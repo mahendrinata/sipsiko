@@ -22,6 +22,10 @@ class Users extends Guest_Controller {
       $user['activation_code'] = $this->set_activation_code($user);
       $register = $this->User->insert($user, TRUE);
       if ($register) {
+        $subject = 'Activation Code SIPSIKO';
+        $message = $this->load->view('email/send_activation_code', compact('user'), TRUE);
+        $this->send_email_by_sipsiko($user['email'], $subject, $message);
+
         $this->show_message('insert', $register, 'Now, You registered as ' . ucfirst(App_Controller::$POST_DATA['role'] . ' in SIPSIKO'));
         redirect('login');
       } else {
@@ -40,6 +44,32 @@ class Users extends Guest_Controller {
       $this->show_message('update', $user, 'Your activation code is wrong.');
       redirect('/');
     }
+  }
+
+  public function forgot_password() {
+    $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+    if ($this->form_validation->run()) {
+      $user = $this->get_by(array('email' => App_Controller::$POST_DATA['email']));
+      if (!empty($user)) {
+        $code = $this->set_activation_code($user);
+        $update = $this->User->update($user['id'], array('activation_code' => $code), TRUE);
+        if ($update) {
+          $subject = 'Reset Password SIPSIKO';
+          $message = $this->load->view('email/reset_password', compact('user'), TRUE);
+          $this->send_email_by_sipsiko($user['email'], $subject, $message);
+
+          $this->show_message('update', TRUE, 'To change password, please check your email.');
+          redirect('login');
+        }
+      } else {
+        $this->show_message('update', FALSE, 'Email not found, please enter valid email.');
+      }
+    }
+    $this->load->view(App_Controller::$LAYOUT, $this->data);
+  }
+
+  public function set_new_password() {
+    
   }
 
   public function login() {

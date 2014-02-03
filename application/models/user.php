@@ -66,7 +66,7 @@ class User extends App_Model {
   public function set_active_by_code($code = NULL) {
     $user = $this->get_by(array('activation_code' => $code));
     if (!empty($user)) {
-      return $this->update_many($user['id'], array('status' => Status::ACTIVE));
+      return $this->update($user['id'], array('status' => Status::ACTIVE, 'activation_code' => NULL), TRUE);
     } else {
       return FALSE;
     }

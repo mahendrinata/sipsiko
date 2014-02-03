@@ -213,12 +213,7 @@ class App_Controller extends Behavior_Controller {
 
   protected function set_activation_code($user = array()) {
     $activation_code = md5($this->session->encryption_key . $user['username'] . $this->get_password_salt());
-    $this->send_activation_code($activation_code, $user);
     return $activation_code;
-  }
-
-  private function send_activation_code($code, $user) {
-    $this->send_email_by_sipsiko($user['email'], 'Activation SIPSIKO', 'Click ' . anchor('activation/' . $code, 'here') . ' to activation SIPSIKO ' . $user['role'] . ' with username ' . $user['username']);
   }
 
   protected function send_email_by_sipsiko($to = NULL, $subject = NULL, $message = NULL) {
