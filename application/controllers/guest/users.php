@@ -23,7 +23,8 @@ class Users extends Guest_Controller {
       $register = $this->User->insert($user, TRUE);
       if ($register) {
         $subject = 'Activation Code SIPSIKO';
-        $message = $this->load->view('email/send_activation_code', compact('user'), TRUE);
+        $layout = 'send_activation_code';
+        $message = $this->load->view('email/layout', compact('user', 'layout'), TRUE);
         $this->send_email_by_sipsiko($user['email'], $subject, $message);
 
         $this->show_message('insert', $register, 'Now, You registered as ' . ucfirst(App_Controller::$POST_DATA['role'] . ' in SIPSIKO'));
