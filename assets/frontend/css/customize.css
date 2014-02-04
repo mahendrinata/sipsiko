@@ -1,0 +1,40 @@
+.label{
+    border-radius: 0.25em;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    margin-right: 20px;
+    margin-top: 10px;
+    max-width: 220px;
+    padding: 4px;
+    text-align: left;
+    vertical-align: baseline;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.label-default{
+    background-color: #999999;
+}
+
+.label-primary{
+    background-color: #428BCA;
+}
+
+.label-success{
+    background-color: #5CB85C;
+}
+
+.label-info{
+    background-color: #5BC0DE;
+}
+
+.label-warning{
+    background-color: #F0AD4E;
+}
+
+.label-danger{
+    background-color: #D9534F;
+}

@@ -1,58 +1,71 @@
 <div id="content" class="container clearfix">
   <nav id="page-title" >
-    <h1>Register as Company or Member</h1>
+    <h1>Daftar sebagai Perusahaan atau Anggota</h1>
   </nav>
 </div>
 </div>
-<div id="contact-map" style="height: 500px;">
+<div id="contact-map" style="height: 600px;">
   <div id="contact-info" style="top: 250px;">
     <div class="one-fourth">
       <div id="contact-details">
-        <h4>Terms and Conditions</h4>
-        <p>Users can only register as a company.</p>
-        
+        <h4>Syarat dan ketentuan</h4>
+        <p>Pengguna hanya dapat mendaftar sebagai Perusahaan atau Anggota.</p>
+
         <br/>
-        <h4>Company</h4>
+        <h4>Perusahaan</h4>
         <p>
         <ul>
-          <li>Create Psychological Test Online (Private or Public).</li>
-          <li>Have a member of tests.</li>
+          <li>Dapat membuat tes psikologi online (Public atau Private).</li>
+          <li>Mempunyai anggota untuk dilakukan tes psikologi.</li>
         </ul>
         </p>
 
-        <h4>Member</h4>
+        <h4>Anggota</h4>
         <p>
         <ul>
-          <li>Perform Psychological Tests.</li>
-          <li>Have a analytic Psychological Tests.</li>
+          <li>Dapat melakukan tes psikologi online yang Public maupun yang diberikan oleh perusahaan.</li>
+          <li>Mempunyai hasil dan analisa tes psikologi.</li>
         </ul>
         </p>
       </div>
     </div>
     <div class="three-fourth last">
       <div id="contact-form">
-        <h4>Register Yourself Now</h4>
+        <h4>Daftarkan Dirimu Sekarang</h4>
         <div id="message"></div>
-        <form method="post" action="register" name="contactform" id="contactform">
-          <input name="first_name" type="text" size="30" placeholder="First Name" >
-          <input name="email" type="text" size="30" placeholder="Email" >
-          <input name="username" type="text" size="30" placeholder="Username" class="last">
-          <textarea name="address" cols="10" rows="3" placeholder="Address"></textarea>
-          <input name="password" type="text" size="30" placeholder="Password" >
-          <input name="password_confirmation" type="text" size="30" placeholder="Password Confirmation">
-          <select name="role" style="width: 205px;border: 1px solid #F2F2F2;background: #FFF;color: #8C8C8C;height: 35px;padding: 7px 10px;width: 228px;">
-            <option value="">COMPANY OR MEMBER</option>
-            <optgroup>
-              <option value="MEMBER">MEMBER</option>
-              <option value="COMPANY">COMPANY</option>
-            </optgroup>
-          </select>
-          <div class="clearfix"></div>
-          <br/>
-          <input type="submit" class="btn-image" id="submit" value="Register" />
-        </form>
+        <?php
+        echo form_open('register', 'name="contactform" id="contactform"');
+        echo form_input('first_name', set_value('first_name'), 'placeholder="Nama Depan"');
+        echo form_input('email', set_value('email'), 'placeholder="Email"');
+        echo form_input('username', set_value('username'), 'placeholder="Username" class="last"');
+        ?>
+        <div class="clearfix"></div>
+        <?php
+        echo label_error('first_name', '<label class="label label-danger">', '</label>');
+        echo label_error('username', '<label class="label label-danger">', '</label>');
+        echo label_error('email', '<label class="label label-danger">', '</label>');
+        echo form_textarea('address', set_value('address'), 'cols="10" rows="3" placeholder="Alamat"');
+        ?>
+        <div class="clearfix"></div>
+        <?php
+        echo label_error('address', '<label class="label label-danger">', '</label>');
+        echo form_password('password', set_value('password'), 'size="30" placeholder="Password"');
+        echo form_password('password_confirmation', set_value('password_confirmation'), 'size="30" placeholder="Konfirmasi Password"');
+        echo form_dropdown('role', array('ANGGOTA ATAU PERUSAHAAN' => array('MEMBER' => 'ANGGOTA', 'COMPANY' => 'PERUSAHAAN')), set_value('role'), 'style="width: 205px;border: 1px solid #F2F2F2;background: #FFF;color: #8C8C8C;height: 35px;padding: 7px 10px;width: 228px;"');
+        ?>
+        <div class="clearfix"></div>
+        <?php
+        echo label_error('password', '<label class="label label-danger">', '</label>');
+        echo label_error('password_confirmation', '<label class="label label-danger">', '</label>');
+        echo label_error('role', '<label class="label label-danger">', '</label>');
+        ?>
+        <div class="clearfix"></div>
+        <br/>
+        <?php
+        echo form_submit(NULL, 'Daftar', 'class="btn-image" id="submit" ');
+        echo form_close();
+        ?>
       </div>
     </div>
   </div>		
-  <div id="map_canvas" style="width:100%; height:100%"></div>
 </div>

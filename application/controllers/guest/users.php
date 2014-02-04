@@ -83,7 +83,10 @@ class Users extends Guest_Controller {
     $this->form_validation->set_rules('password', 'Password', 'required');
     $this->form_validation->set_rules('id', 'ID', 'required');
     if ($this->form_validation->run()) {
-      
+      $user = $this->set_encrype_user_data(App_Controller::$POST_DATA);
+      $update = $this->User->update_by(array('code' => $code), $user, TRUE);
+      $this->show_message('update', $update);
+      redirect('login');
     }
     $this->data['user'] = $this->User->get_by(array('activation_code' => $code));
     $this->load->view(App_Controller::$LAYOUT, $this->data);

@@ -87,4 +87,20 @@ if (!function_exists('label_error')) {
   }
 
 }
+
+if (!function_exists('jquery_alert')) {
+
+  function jquery_alert_form($field = NULL) {
+    $uid = rand(0, 10000);
+    $preffix = '<div class="#error-message-' . $uid . '" style="display:none;">';
+    $suffix = '</div>'
+      . '<script type="text/javascript">'
+      . '$(document).ready(function() {'
+      . '$("#error-message-' . $uid . '").slideDown(800).delay(8000).slideUp(800);'
+      . '});'
+      . '</script>';
+    return form_error($field, $preffix, $suffix);
+  }
+
+}
 ?>

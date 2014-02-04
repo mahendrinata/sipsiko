@@ -12,7 +12,8 @@
     echo css(array(
       'style',
       'fullwidth',
-      'revolution-settings'
+      'revolution-settings',
+      'customize'
       ), 'assets/frontend/');
     echo js(array(
       'jquery.min',
