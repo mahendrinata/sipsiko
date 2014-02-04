@@ -74,7 +74,13 @@
     </style>
   </head>
   <body>
-    <table id="sipsiko-email-container" border="0" cellpadding="0" cellspacing="0" >
+    <table id="sipsiko-email-container" border="0" cellpadding="0" cellspacing="0" style="font-family: 'Helvetica Neue',Arial,Helvetica,Geneva,sans-serif;
+        color: #E7CBA3;
+        font-size: 9pt !important;
+        max-width: 640px;
+        min-width: 250px;
+        width: 90%;
+        margin: 20px auto;">
       <tr>
       <td id="sipsiko-email-nav">
         <div id="list">
