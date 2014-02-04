@@ -112,7 +112,7 @@ class Users extends Guest_Controller {
       }
     }
 
-    $this->load->view('layout/login', $this->data);
+    $this->load->view(App_Controller::$LAYOUT, $this->data);
   }
 
   public function logout() {

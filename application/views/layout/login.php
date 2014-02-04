@@ -76,7 +76,8 @@
           </div>
           <?php echo form_submit('submit', 'Login', 'class="btn btn-lg btn-primary login-submit"'); ?>
           <?php echo form_close(); ?>
-          <a href="index.html#">Forgot password?</a></div>
+          <?php echo anchor('reset-password', 'Lupa Password') ?>
+        </div>
       </div>
     </div>  
   </body>
