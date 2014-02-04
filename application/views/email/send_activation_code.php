@@ -1,6 +1,6 @@
 <h2>Aktivasi Account SIPSIKO</h2>
 
-<table class="w580" border="0" cellpadding="0" cellspacing="0" width="580">
+<table>
   <tr><td>Username</td><td>: <?php echo $user['username']; ?></td></tr>
   <tr><td>Nama</td><td>: <?php echo $user['first_name']; ?></td></tr>
   <tr><td>Email</td><td>: <?php echo $user['email']; ?></td></tr>

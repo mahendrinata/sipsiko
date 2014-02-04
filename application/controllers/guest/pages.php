@@ -9,7 +9,11 @@ if (!defined('BASEPATH'))
 class Pages extends Guest_Controller {
 
   public function index() {
-    $this->load->view(App_Controller::$LAYOUT, $this->data);
+    $this->load->model('User');
+    $user = $this->User->get(1);
+    $layout = 'send_activation_code';
+    $this->load->view('email/default', compact('user','layout'));
+//    $this->load->view(App_Controller::$LAYOUT, $this->data);
   }
 
   public function about() {

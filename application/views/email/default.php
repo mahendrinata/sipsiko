@@ -8,10 +8,8 @@
         font-family: 'Helvetica Neue',Arial,Helvetica,Geneva,sans-serif;
         color: #E7CBA3;
         font-size: 9pt !important;
-      }
-      .sipsiko-email-container{
         max-width: 640px;
-        min-width: 280px;
+        min-width: 250px;
         width: 90%;
         margin: 20px auto;
       }
@@ -76,29 +74,37 @@
     </style>
   </head>
   <body>
-    <div class="sipsiko-email-container">
-      <div class="sipsiko-email-nav">
+    <table class="sipsiko-email-container" border="0" cellpadding="0" cellspacing="0" >
+      <tr>
+      <td class="sipsiko-email-nav">
         <div class="list">
           <a href="#"><?php echo img('assets/email/img/like-glyph.png') ?> Like</a>
           <a href="#"><?php echo img('assets/email/img/tweet-glyph.png') ?> Tweet</a>
           <a href="#"><?php echo img('assets/email/img/forward-glyph.png') ?> Forward</a>
         </div>
         <div class="clearfix"></div>
-      </div>
-      <div class="sipsiko-email-header">
+      </td>
+      </tr>
+      <tr>
+      <td class="sipsiko-email-header">
         <h1>SIPSIKO Indonesia</h1>
-      </div>
-      <div class="sipsiko-email-content">
+      </td>
+      </tr>
+      <tr>
+      <td class="sipsiko-email-content">
         <?php
         if (!empty($layout)) {
           $this->load->view('email/'.$layout);
         }
         ?>
-      </div>
-      <div class="sipsiko-email-footer">
+      </td>
+      </tr>
+      <tr>
+      <td class="sipsiko-email-footer">
         Tes Psikologi On-line &copy; SIPSIKO <?php echo date('Y'); ?>
-      </div>
+      </td>
+      </tr>
 
-    </div>
+    </table>
   </body>
 </html>
