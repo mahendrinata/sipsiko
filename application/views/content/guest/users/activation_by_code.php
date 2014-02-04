@@ -15,12 +15,17 @@
     <div class="three-fourth last">
       <div id="contact-form">
         <div id="message"></div>
-        <form method="post" action="activation-by-code" name="contactform" id="contactform">
-          <input name="code" type="text" style="width: 85%;max-width: 400px;"placeholder="Kode Aktivasi" >
-          <div class="clearfix"></div>
-          <br/>
-          <input type="submit" class="btn-image" id="submit" value="Aktivasi Akun" />
-        </form>
+        <?php
+        echo form_open('activation-by-code', 'name="contactform" id="contactform"');
+        echo form_input('code', set_value('code'), 'style="width: 85%;max-width: 400px;"placeholder="Kode Aktivasi"');
+        echo label_error('code', '<label class="label label-danger">', '</label>');
+        ?>
+        <div class="clearfix"></div>
+        <br/>
+        <?php
+        echo form_submit(NULL, 'Aktivasi Akun', 'class="btn-image" id="submit" ');
+        echo form_close();
+        ?>
       </div>
     </div>
   </div>		

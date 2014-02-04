@@ -79,12 +79,12 @@ class Users extends Guest_Controller {
   }
 
   public function set_new_password($code) {
-    $this->form_validation->set_rules('id', 'ID', 'required');
-    $this->form_validation->set_rules('password', 'Password', 'required');
-    $this->form_validation->set_rules('id', 'ID', 'required');
+    $this->form_validation->set_rules('code', 'Kode', 'required');
+    $this->form_validation->set_rules('password', 'Password', 'required|min_length[5]');
+    $this->form_validation->set_rules('password_confirmation', 'Konfirmasi Password', 'required|min_length[5]|matches[password]');
     if ($this->form_validation->run()) {
       $user = $this->set_encrype_user_data(App_Controller::$POST_DATA);
-      $update = $this->User->update_by(array('code' => $code), $user, TRUE);
+      $update = $this->User->update_by(array('code' => $code), array('password' => $user['password'], 'activation_code' => NULL), TRUE);
       $this->show_message('update', $update);
       redirect('login');
     }

@@ -15,12 +15,17 @@
     <div class="three-fourth last">
       <div id="contact-form">
         <div id="message"></div>
-        <form method="post" action="reset-password" name="contactform" id="contactform">
-          <input name="email" type="text" style="width: 85%;max-width: 400px;"placeholder="Email" >
-          <div class="clearfix"></div>
-          <br/>
-          <input type="submit" class="btn-image" id="submit" value="Reset Password" />
-        </form>
+        <?php
+        echo form_open('reset-password', 'name="contactform" id="contactform"');
+        echo form_input('email', set_value('email'), 'style="width: 85%;max-width: 400px;"placeholder="Email"');
+        echo label_error('email', '<label class="label label-danger">', '</label>');
+        ?>
+        <div class="clearfix"></div>
+        <br/>
+        <?php
+        echo form_submit(NULL, 'Reset Password', 'class="btn-image" id="submit" ');
+        echo form_close();
+        ?>
       </div>
     </div>
   </div>		
