@@ -83,7 +83,6 @@ class Users extends Guest_Controller {
 
   public function set_new_password($code) {
     $this->data['title'] = 'Ganti Password Akun SIPSIKO';
-    $this->form_validation->set_rules('code', 'Kode', 'required');
     $this->form_validation->set_rules('password', 'Password', 'required|min_length[5]');
     $this->form_validation->set_rules('password_confirmation', 'Konfirmasi Password', 'required|min_length[5]|matches[password]');
     if ($this->form_validation->run()) {
@@ -92,7 +91,7 @@ class Users extends Guest_Controller {
       $this->show_message('update', $update);
       redirect('login');
     }
-    $this->data['user'] = $this->User->get_by(array('activation_code' => $code));
+    $this->data['code'] = $code;
     $this->load->view(App_Controller::$LAYOUT, $this->data);
   }
 

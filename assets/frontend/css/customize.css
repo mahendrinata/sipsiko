@@ -1,8 +1,19 @@
+body{
+    background: url(../img/box.png) !important;
+}
+
+#wrapper-header{
+    background-color: #FFF;
+}
+#page-title h1{
+    padding-bottom: 10px;
+    font-weight: bold;
+}
 .label{
     border-radius: 0.25em;
     color: #FFFFFF;
     display: inline-block;
-    font-size: 75%;
+    font-size: 85%;
     font-weight: 700;
     line-height: 1;
     margin-right: 20px;
@@ -11,7 +22,6 @@
     padding: 4px;
     text-align: left;
     vertical-align: baseline;
-    white-space: nowrap;
     width: 100%;
 }
 

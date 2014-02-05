@@ -212,13 +212,13 @@ class App_Controller extends Behavior_Controller {
   }
 
   protected function set_activation_code($user = array()) {
-    $activation_code = md5($this->session->encryption_key . $user['username'] . $this->get_password_salt());
+    $activation_code = md5($this->session->encryption_key . $user['username'] . $this->get_password_salt()) . md5(rand(0, 9999)) . md5(date('Y-m-d H:i:s'));
     return $activation_code;
   }
 
   protected function send_email_by_sipsiko($to = NULL, $subject = NULL, $message = NULL) {
     $this->load->library('email');
-    
+
     $this->email->from('sipsiko.indonesia@gmail.com', 'SIPSIKO Indonesia');
     $this->email->to($to);
     $this->email->subject($subject);

@@ -16,8 +16,7 @@
       <div id="contact-form">
         <div id="message"></div>
         <?php
-        echo form_open('set-new-password', 'name="contactform" id="contactform"');
-        echo form_hidden('code', $user['code'], 'readonly="readonly"');
+        echo form_open('set-new-password/' . $code, 'name="contactform" id="contactform"');
         echo form_input('password', set_value('password'), 'style="width: 85%;max-width: 400px;"placeholder="Password"');
         echo label_error('password', '<label class="label label-danger">', '</label>');
         ?>

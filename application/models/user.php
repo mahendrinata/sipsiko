@@ -38,13 +38,13 @@ class User extends App_Model {
     ),
     array(
       'field' => 'first_name',
-      'label' => 'First Name',
+      'label' => 'Nama Depan',
       'rules' => 'required'
     ),
     array(
       'field' => 'email',
       'label' => 'Email',
-      'rules' => 'required|valid_email|is_unique(users.email)'
+      'rules' => 'required|valid_email|is_unique[users.email]'
     ),
     array(
       'field' => 'role',
@@ -58,7 +58,7 @@ class User extends App_Model {
     ),
     array(
       'field' => 'password_confirmation',
-      'label' => 'Password Confirmation',
+      'label' => 'Konfirmasi Password',
       'rules' => 'required|min_length[5]|matches[password]'
     )
   );
