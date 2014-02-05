@@ -1,5 +1,10 @@
 <div class="container-fluid">
   <?php
-  $this->load->view('content/' . $directory . '/' . $class . '/' . $method);
+  $file_view = 'content/' . $directory . '/' . $class . '/' . $method;
+  if (file_exists(APPPATH . 'views/' . strtolower($file_view) . '.php')) {
+    $this->load->view($file_view);
+  } else {
+    $this->load->view('error/404');
+  }
   ?>
 </div>

@@ -5,7 +5,7 @@
       <li><?php echo anchor('home', 'Beranda');?></li>
       <li><?php echo anchor('about-us', 'Tentang Kami');?></li>
       <li>
-        <?php echo anchor('feature', 'Fiture');?>
+        <?php echo anchor('feature', 'Fitur');?>
         <ul>
           <li><?php echo anchor('company', 'Perusahaan');?></li>
           <li><?php echo anchor('member', 'Anggota');?></li>
