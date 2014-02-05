@@ -11,7 +11,7 @@
         <h4>Detail Kontak</h4>
         <p> 
           Jl. Penyu no. 40<br>
-          Bandung, 40256<br>
+          Bandung, 40264<br>
           Indonesia<br><br>
 
           Phone: +6285721821555<br>
