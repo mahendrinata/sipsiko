@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><?php echo isset($title) ? 'SIPSIKO - ' . $title : 'SIPSIKO - Sistem Pakar Tes Psikotes Online'; ?></title>
+    <title><?php echo isset($title) ? $title : 'SIPSIKO - Sistem Pakar Tes Psikotes Online'; ?></title>
     <?php echo link_tag('assets/favicon.gif', 'shortcut icon', 'image/ico'); ?>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="description" content="Aplikasi Sistem Tes Psikologi Online Multi dan Custum Variabel Tes. Merupakan Aplikasi yang dapat mendukung sebuah perusahaan maupun anggota"/>
+    <meta name=”robots” content=”noindex, nofollow”/>
+    <meta name=”keywords” content=”meta tags,tes psikologi, sipsiko”/>
+    <meta name=”google” content=”notranslate” />    
+    <meta name="author" content="Mahendri Winata (mahen.0112@gmail.com)"/>
     <?php
     echo css(array(
       'style',

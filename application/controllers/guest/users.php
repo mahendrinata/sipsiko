@@ -9,6 +9,7 @@ if (!defined('BASEPATH'))
 class Users extends Guest_Controller {
 
   public function register() {
+    $this->data['title'] = 'Daftar Perusahaan atau Anggota';
     if (!empty(App_Controller::$POST_DATA)) {
       if (!in_array(App_Controller::$POST_DATA['role'], array(Role::COMPANY, Role::MEMBER))) {
         App_Controller::$POST_DATA['role'] = NULL;
@@ -48,6 +49,7 @@ class Users extends Guest_Controller {
   }
 
   public function activation_by_code() {
+    $this->data['title'] = 'Aktivasi Akun SIPSIKO';
     $this->form_validation->set_rules('code', 'Code', 'required');
     if ($this->form_validation->run()) {
       $this->activation(App_Controller::$POST_DATA['code']);
@@ -56,6 +58,7 @@ class Users extends Guest_Controller {
   }
 
   public function reset_password() {
+    $this->data['title'] = 'Reset Password Akun SIPSIKO';
     $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
     if ($this->form_validation->run()) {
       $user = $this->User->get_by(array('email' => App_Controller::$POST_DATA['email']));
@@ -79,6 +82,7 @@ class Users extends Guest_Controller {
   }
 
   public function set_new_password($code) {
+    $this->data['title'] = 'Ganti Password Akun SIPSIKO';
     $this->form_validation->set_rules('code', 'Kode', 'required');
     $this->form_validation->set_rules('password', 'Password', 'required|min_length[5]');
     $this->form_validation->set_rules('password_confirmation', 'Konfirmasi Password', 'required|min_length[5]|matches[password]');
@@ -93,6 +97,7 @@ class Users extends Guest_Controller {
   }
 
   public function login() {
+    $this->data['title'] = 'Login Akun SIPSIKO';
     if (isset(App_Controller::$USER) && !empty(App_Controller::$USER)) {
       redirect(strtolower(App_Controller::$USER['role']) . '/homes');
     }
