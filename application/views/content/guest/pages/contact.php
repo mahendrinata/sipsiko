@@ -1,6 +1,6 @@
 <div id="content" class="container clearfix">
   <nav id="page-title" >
-    <h1>Contact us</h1>
+    <h1>Kontak Kami</h1>
   </nav>
 </div>
 </div>
@@ -8,7 +8,7 @@
   <div id="contact-info">
     <div class="one-fourth">
       <div id="contact-details">
-        <h4>Contact details</h4>
+        <h4>Detail Kontak</h4>
         <p> 
           Jl. Penyu no. 40<br>
           Bandung, 40256<br>
@@ -22,7 +22,7 @@
     </div>
     <div class="three-fourth last">
       <div id="contact-form">
-        <h4>Send us a message</h4>
+        <h4>Kirim pesan untuk kami</h4>
         <div id="message"></div>
         <form method="post" action="#" name="contactform" id="contactform">
           <input name="name" type="text" id="name" size="30" placeholder="Name" >

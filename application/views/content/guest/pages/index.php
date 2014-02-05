@@ -48,29 +48,29 @@
       <div class="feature one-fourth">
         <div class="feature-icon"><img src="<?php echo base_url().'assets/frontend/img/'; ?>services_icon_01.png" alt="" /></div>
         <div class="feature-description">
-          <h4>Responsive Layout</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et ipsum tellus, vitae sagittis enim. Morbi ultricies ultrices elit vitae</p>                
+          <h4>Support Perusahaan</h4>
+          <p>Perusahaan / Institusi Psikologi dapat mendaftar dan data melakukan tes online.</p>                
         </div>
       </div>
       <div class="feature one-fourth second">
         <div class="feature-icon"><img src="<?php echo base_url().'assets/frontend/img/'; ?>services_icon_02.png" alt="" /></div>
         <div class="feature-description">
-          <h4>HTML5 / CSS3</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et ipsum tellus, vitae sagittis enim. Morbi ultricies ultrices elit vitae</p>                
+          <h4>Public dan Private Tes</h4>
+          <p>Tes dapat bersifat Public atau Private (Milik Perusahaan).</p>                
         </div>
       </div>
       <div class="feature one-fourth">
         <div class="feature-icon"><img src="<?php echo base_url().'assets/frontend/img/'; ?>services_icon_03.png" alt="" /></div>
         <div class="feature-description">
-          <h4>Modern & Clean</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et ipsum tellus, vitae sagittis enim. Morbi ultricies ultrices elit vitae</p>                
+          <h4>Analisis dan history Tes</h4>
+          <p>Setiap tes selalu terdapat analisis yang berkelanjutan.</p>                
         </div>
       </div>
       <div class="feature one-fourth last">
         <div class="feature-icon"><img src="<?php echo base_url().'assets/frontend/img/'; ?>services_icon_04.png" alt="" /></div>
         <div class="feature-description">
-          <h4>Easily Customisable</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et ipsum tellus, vitae sagittis enim. Morbi ultricies ultrices elit vitae</p>                
+          <h4>Custom dan Multi Variabel</h4>
+          <p>Tes Psikologi dapat menggunakan varibel tes yang dapat disesuaikan.</p>                
         </div>
       </div>
     </div>

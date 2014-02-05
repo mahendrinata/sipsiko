@@ -2,10 +2,10 @@
   <div id="footer-center" class="container">
     <div class="footer-left">
       <ul class="footer-menu">
-        <li><?php echo anchor('home', 'Home');?></li>
-        <li><?php echo anchor('about-us', 'About Us');?></li>
-        <li><?php echo anchor('feature', 'Feature');?></li>
-        <li class="footer-last"><?php echo anchor('contact', 'Contact');?></li>
+        <li><?php echo anchor('home', 'Beranda');?></li>
+        <li><?php echo anchor('about-us', 'Tentang Kami');?></li>
+        <li><?php echo anchor('feature', 'Fitur');?></li>
+        <li class="footer-last"><?php echo anchor('contact', 'Kontak');?></li>
       </ul>
       <ul class="footer-address">
         <li><?php echo img('assets/frontend/img/home-icon.png')?> Jl. Penyu No. 40, Bandung 40264</li>
@@ -16,7 +16,7 @@
     <div class="footer-right" id="footer-newsletter">
       <p>Newsletter</p>
       <form id="newsletter"  method="post">
-        <input type="text" placeholder="Email here">
+        <input type="text" placeholder="Email">
         <button type="submit">Submit</button>
       </form>
     </div>
