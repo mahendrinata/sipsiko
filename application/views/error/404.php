@@ -9,7 +9,7 @@
       <br>
       <div id="fourofour">
         <?php
-        echo anchor('/', 'Kemabali ke Beranda', 'class="btn black"');
+        echo anchor('/', 'Kembali ke Beranda', 'class="btn black"');
         echo anchor('#', 'Lihat SiteMap', 'class="btn black"');
         ?>
       </div>
