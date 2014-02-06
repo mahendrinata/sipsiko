@@ -69,7 +69,7 @@
       <div class="feature one-fourth last">
         <div class="feature-icon"><img src="<?php echo base_url().'assets/frontend/img/'; ?>services_icon_04.png" alt="" /></div>
         <div class="feature-description">
-          <h4>Custom dan Multi Variabel</h4>
+          <h4>Multi Custom Variabel</h4>
           <p>Tes Psikologi dapat menggunakan varibel tes yang dapat disesuaikan.</p>                
         </div>
       </div>
